@@ -41,3 +41,11 @@ h1 {
 	-webkit-filter: grayscale(0);
   	filter: grayscale(0);
 }
+
+.links ul li .git {
+	opacity: 0.5;
+}
+
+.links ul li .git:hover {
+	opacity: 1;
+}
