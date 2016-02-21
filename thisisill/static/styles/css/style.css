@@ -24,11 +24,15 @@
 }
 
 
-
+.varcont {
+  background-color: #EFEAEA;
+  overflow-y: auto;
+}
 
 body {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;
+
 }
 
 .rabat {
@@ -60,8 +64,7 @@ img.logo {
 }
 
 .button:hover {
-	background-color: #EFEBEB;
-	cursor: ;
+	 background-color: #E0DEDE
 }
 
 
@@ -80,20 +83,29 @@ img.logo {
 
 }
 #stamp_inL {
-	opacity: 0.45;
+	opacity: 1;
 }
 
 #stamp_doM {
 	opacity: 0.45;
 }
+
+#stamp_trS {
+  opacity: 1;
+}
+
+#stamp_gtW {
+  opacity: 0.45;
+}
+
 table.stampgrid {
 
-	padding: 30px;
+	padding: 10px;
 }
 
 table.stampgrid td img {
-	height: 100px;
-	width: 100px;
+	height: 150px;
+	width: 150px;
 }
 
 table.stampgrid tr.catLast {
@@ -187,4 +199,67 @@ input[type=range]:focus::-ms-fill-lower {
 }
 input[type=range]:focus::-ms-fill-upper {
   background: #ac51b5;
+}
+
+.varcont::-webkit-scrollbar-track
+{
+  display:NONE;
+}
+
+.varcont::-webkit-scrollbar
+{
+  display: none;
+}
+
+.varcont::-webkit-scrollbar-thumb
+{
+  background-color: #000000;
+  border: 2px solid #555555;
+}
+
+.city-result .snapcity {
+
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+} 
+
+.city-result {
+  background-color: #fff;
+  width: 250px;
+  border: 1px solid #c5c5c5;
+-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+margin-bottom: 5%;
+}
+
+input[type=date], input[type=text] {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    border-bottom: 2px solid #ADB7B9;
+    padding-bottom: 5px;
+}
+
+input[type=date]:focus, input[type=text]:focus {
+
+    border: none;
+    border-bottom: 2px solid #28BCDA;
+    outline: none;
+}
+
+#load{
+    width:350px;
+    height:500px;
+    position:fixed;
+    z-index:9999;
+    background:url("https://www.creditmutuel.fr/cmne/fr/banques/webservices/nswr/images/loading.gif") no-repeat center center rgba(0,0,0,0.25)
+}
+
+p.cityLabel {
+  text-transform: capitalize;
 }
