@@ -57,7 +57,7 @@ h1 {
 .repeater {
 	width: 100%;
 	height: 260px;
-	background: url('../img/seamless.png');
+	background: url('../img/Seamless.png');
 	background-size: contain;
 	background-repeat: repeat-x;
 
@@ -78,7 +78,7 @@ h1 {
 .jumbotron .display {
 	height: 150px;
 	width: 150px;
-	background: url('../img/display.png');
+	background: url('../img/Display.png');
 	background-size: contain;
 	border-radius: 50%;
 }
