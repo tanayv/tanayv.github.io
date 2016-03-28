@@ -134,3 +134,7 @@ h1 {
 	color: #fff;
 	cursor:default;
 }
+
+.jumbotron a:hover {
+	cursor: default;
+};
