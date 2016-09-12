@@ -1,0 +1,69 @@
+@import 'https://fonts.googleapis.com/css?family=Noto+Sans';
+@import 'https://fonts.googleapis.com/css?family=Noto+Serif';
+
+* {
+	font-family: 'Noto Serif', serif;
+}
+
+
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #ececec;
+}
+
+a {
+	text-decoration: none;
+	color: #072b9b;
+	cursor: pointer;
+}
+
+a:hover {
+	border-bottom: 1px solid #072b9b;
+	cursor: pointer;
+
+}
+
+.repeater {
+	height: 140px;
+	width: 100%;
+	background-image: url('../img/header.png');
+	background-size: contain;
+}
+
+.jumbotron {
+	width: 60%;
+	background-color: #fff;
+	display:block;
+	height: 100%;
+}
+
+.jumbotron p.bio {
+	font-size: 1.25rem;
+	font-weight: lighter;
+	width: 70%;
+	line-height: 2rem;
+}
+
+@media screen and (max-device-width: 480px) {
+	
+	.jumbotron {
+	width: 100%;
+	display: block;
+	}
+
+	.jumbotron p.bio {
+		font-size: 0.8rem;
+		line-height: 1.4rem;
+	}
+
+}
+
+
+
+h1 {
+	font-weight: 700;
+	font-size: 40px;
+	font-family: 'Noto Sans', sans-serif;
+}
