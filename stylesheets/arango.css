@@ -36,15 +36,91 @@ a:hover {
 	width: 60%;
 	background-color: #fff;
 	display:block;
-	height: 100%;
+	min-height: 100%;
 }
+
 
 .jumbotron p.bio {
 	font-size: 1.25rem;
 	font-weight: lighter;
-	width: 70%;
 	line-height: 2rem;
+	width: calc(80% - 10px);
+	text-align: start;
 }
+
+.jumbotron p.links {
+	font-size: 1.25rem;
+	font-weight: lighter;
+	line-height: 2rem;
+	width: calc(80% - 10px);
+	text-align: start;
+}
+
+p.links a {
+	color: #27a95d;
+}
+
+p.links a:hover {
+	border-bottom: 1px solid #27a95d;
+	cursor: pointer;
+
+}
+
+hr.short {
+	width: 10%;
+	text-align: left;
+}
+
+
+h1 {
+	font-weight: 700;
+	font-size: 45px;
+	font-family: 'Noto Sans', sans-serif;
+	margin-left: 10%;
+	text-align: left;
+}
+
+.projectBox {
+	-webkit-flex: 1;
+    flex: 1;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: calc(10% - 10px);
+
+}
+
+.projectBox .card {
+	height: 300px;
+	width: 300px;
+	position: relative;
+	background-color: #ececec;
+	margin-top: 10px;
+}
+
+.projectBox .card .meta {
+	bottom: 0;
+	position: absolute;
+	background-color: #e8e6e6 ;
+	padding: 5px;
+	padding-left: 10px;
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font-family: 'Noto Sans', sans-serif;
+}
+
+.projectBox .card .meta b {
+	font-family: 'Noto Sans', sans-serif;
+}
+
+.projectBox .cardholder {
+	padding: 5px 0px 0px 10px;
+}
+
 
 @media screen and (max-device-width: 480px) {
 	
@@ -53,17 +129,30 @@ a:hover {
 	display: block;
 	}
 
-	.jumbotron p.bio {
-		font-size: 0.8rem;
+	.jumbotron p {
+		font-size: 1rem;
 		line-height: 1.4rem;
 	}
 
+	.jumbotron h1 {
+		font-size: 28px;
+	}
+
+	.projectBox {
+		margin-left: 0px;
+		text-align: center;
+		justify-content: center;
+	}
+
+	.projectBox .cardholder {
+    	padding: 5px 0px 0px 5px;
+	}
+
+	.projectBox .cardholder .card {
+    	height: 200px;
+	}
+
+
 }
 
 
-
-h1 {
-	font-weight: 700;
-	font-size: 40px;
-	font-family: 'Noto Sans', sans-serif;
-}
