@@ -1,0 +1,220 @@
+@import 'https://fonts.googleapis.com/css?family=Noto+Sans';
+@import 'https://fonts.googleapis.com/css?family=Noto+Serif';
+
+* {
+	font-family: 'Noto Serif', serif;
+}
+
+
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #f2f2f2;
+}
+
+a {
+	text-decoration: none;
+	color: #072b9b;
+	cursor: pointer;
+}
+
+a:hover {
+	border-bottom: 1px solid #072b9b;
+	cursor: pointer;
+
+}
+
+.repeater {
+	height: 140px;
+	width: 100%;
+	background-image: url('../img/header.png');
+	background-size: contain;
+}
+
+.jumbotron {
+	width: 60%;
+	background-color: #fff;
+	display:block;
+	min-height: 100%;
+}
+
+
+.jumbotron p.bio {
+	font-size: 1.25rem;
+	font-weight: lighter;
+	line-height: 2rem;
+	width: calc(80% - 10px);
+	text-align: start;
+}
+
+.jumbotron p.links {
+	font-size: 1.25rem;
+	font-weight: lighter;
+	line-height: 2rem;
+	width: calc(80% - 10px);
+	text-align: start;
+}
+
+p.links a {
+	color: #27a95d;
+}
+
+p.links a:hover {
+	border-bottom: 1px solid #27a95d;
+	cursor: pointer;
+
+}
+
+hr.short {
+	width: 10%;
+	text-align: left;
+}
+
+
+h1 {
+	font-weight: 700;
+	font-size: 45px;
+	font-family: 'Noto Sans', sans-serif;
+	margin-left: 10%;
+	text-align: left;
+}
+
+h2.light {
+	font-weight: 400;
+	font-family: 'Noto Sans', sans-serif;
+	margin-bottom: 5px;
+}
+
+.projectBox {
+	-webkit-flex: 1;
+    flex: 1;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: -5px;
+
+}
+
+a .card {
+	color: initial;
+}
+
+.projectBox .card {
+	height: 200px;
+	width: 300px;
+	position: relative;
+	background-color: #ececec;
+	margin-top: 10px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.projectbox .card:hover {
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+	.projectBox .card.motorsports {
+	    background-image: url('../img/tiles/motorsports.png');
+	    background-size: contain;
+	}
+
+	.projectBox .card.amadeus {
+	    background-image: url('../img/tiles/amadeus.png');
+	    background-size: contain;
+	}
+
+	.projectBox .card.embark {
+	    background-image: url('../img/tiles/embark.png');
+	    background-size: contain;
+	}
+
+	.projectBox .card.crepel {
+	    background-image: url('../img/tiles/crepel.png');
+	    background-size: contain;
+	}
+
+	.projectBox .card.lapras {
+	    background-image: url('../img/tiles/lapras.png');
+	    background-size: contain;
+	}
+
+	.projectBox .card.spotify {
+	    background-image: url('../img/tiles/spotify.png');
+	    background-size: contain;
+	}
+
+	.projectBox .card.spaceset {
+	    background-image: url('../img/tiles/spaceset.png');
+	    background-size: contain;
+	}
+
+	.projectBox .card.portfolio {
+	    background-image: url('../img/tiles/portfolio.png');
+	    background-size: contain;
+	}
+
+	.projectBox .card.tactics {
+	    background-image: url('../img/tiles/tactics.png');
+	    background-size: contain;
+	}
+
+.projectBox .card .meta {
+	bottom: 0;
+	position: absolute;
+	background-color: #fff ;
+	padding: 5px;
+	padding-left: 10px;
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font-family: 'Noto Sans', sans-serif;
+}
+
+.projectBox .card .meta b {
+	font-family: 'Noto Sans', sans-serif;
+}
+
+.projectBox .cardholder {
+	padding: 5px 0px 0px 10px;
+}
+
+
+@media (max-device-width: 480px) {
+	
+	.jumbotron {
+	width: 100%;
+	display: block;
+	}
+
+	.jumbotron p {
+		font-size: 1rem;
+		line-height: 1.4rem;
+	}
+
+	.jumbotron h1 {
+		font-size: 28px;
+	}
+
+	.projectBox {
+		margin-left: 0px;
+		text-align: center;
+		justify-content: center;
+	}
+
+	.projectBox .cardholder {
+    	padding: 5px 0px 0px 5px;
+	}
+
+	.projectBox .cardholder .card {
+    	height: 200px;
+	}
+
+
+}
+
+
