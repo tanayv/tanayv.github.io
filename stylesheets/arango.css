@@ -87,6 +87,11 @@ p.caption {
 	width: calc(80% - 10px);
 }
 
+.jumbotron img.embarkgif {
+	height: 496px;
+    width: initial;
+}
+
 hr.short {
 	width: 10%;
 	text-align: left;
