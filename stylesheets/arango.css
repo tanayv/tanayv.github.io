@@ -179,7 +179,7 @@ a .card {
 	    background-size: contain;
 	}
 
-	.projectBox .card.portfolio {
+	.projectBox .card.sentinel {
 	    background-image: url('../img/tiles/portfolio.png');
 	    background-size: contain;
 	}
@@ -218,6 +218,11 @@ a .card {
 	}
 
 	.jumbotron p {
+		font-size: 1rem;
+		line-height: 1.4rem;
+	}
+
+	.jumbotron p.bio, .jumbotron p.links {
 		font-size: 1rem;
 		line-height: 1.4rem;
 	}
