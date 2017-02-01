@@ -1,8 +1,8 @@
 @import 'https://fonts.googleapis.com/css?family=Noto+Sans';
-@import 'https://fonts.googleapis.com/css?family=Noto+Serif';
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 
 * {
-	font-family: 'Noto Serif', serif;
+	font-family: 'Roboto Slab', serif;
 }
 
 
@@ -33,7 +33,7 @@ a:hover {
 }
 
 .jumbotron {
-	width: 60%;
+	width: 78%;
 	background-color: #fff;
 	display:block;
 	min-height: 100%;
@@ -41,17 +41,18 @@ a:hover {
 
 
 .jumbotron p.bio {
-	font-size: 1.25rem;
-	font-weight: lighter;
-	line-height: 2rem;
+	font-weight: 400;
 	width: calc(80% - 10px);
 	text-align: start;
+	font-size: 1.0rem;
+	line-height: 1.6rem;
+	color: #2e2d2d;
 }
 
 .jumbotron p.links {
-	font-size: 1.25rem;
+	font-size: 1.2rem;
 	font-weight: lighter;
-	line-height: 2rem;
+	line-height: 1.6rem;
 	width: calc(80% - 10px);
 	text-align: start;
 }
@@ -108,7 +109,6 @@ h1 {
 
 h2.light {
 	font-weight: 400;
-	font-family: 'Noto Sans', sans-serif;
 	margin-bottom: 5px;
 }
 
@@ -224,11 +224,17 @@ a .card {
 
 	.jumbotron p.bio, .jumbotron p.links {
 		font-size: 1rem;
-		line-height: 1.4rem;
+		line-height: 1.5rem;
 	}
 
 	.jumbotron h1 {
 		font-size: 28px;
+	}
+
+	.jumbotron h2.light {
+		font-weight: 400;
+		margin-bottom: 5px;
+		font-size: 20px;
 	}
 
 	.projectBox {
