@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 
 * {
@@ -200,10 +200,12 @@ a .card {
 	box-sizing: border-box;
 	width: 100%;
 	text-align: left;
+	color: #717171;
 }
 
 .projectBox .card .meta b {
-	font-family: 'Noto Sans', sans-serif;
+	font-weight: 500;
+	color: #000;
 }
 
 .projectBox .cardholder {
