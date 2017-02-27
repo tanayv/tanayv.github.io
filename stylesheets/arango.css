@@ -250,6 +250,13 @@ a .card {
 }
 
 
+@media (min-device-width: 1600px) {
+	.jumbotron {
+		width: 35%;
+	}
+}
+
+
 @media screen and (max-device-width: 480px) {
 	
 	body {
