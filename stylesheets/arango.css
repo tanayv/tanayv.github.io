@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 
 * {
 	font-family: 'Roboto', sans-serif;
@@ -10,7 +9,9 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #f2f2f2;
+	background-color: #fff;
+	height: 100%;
+	overflow-y: hidden;
 }
 
 a {
@@ -28,12 +29,11 @@ a:hover {
 .repeater {
 	height: 140px;
 	width: 100%;
-	background-image: url('../img/header.png');
-	background-size: contain;
+	background: #303F9F;
 }
 
 .jumbotron {
-	width: 78%;
+	width: 70%;
 	background-color: #fff;
 	display:block;
 	min-height: 100%;
@@ -42,7 +42,6 @@ a:hover {
 
 .jumbotron p.bio {
 	font-weight: 400;
-	width: calc(80% - 10px);
 	text-align: start;
 	font-size: 1.15rem;
 	line-height: 1.6rem;
@@ -53,17 +52,17 @@ a:hover {
 	font-size: 1.2rem;
 	font-weight: lighter;
 	line-height: 1.6rem;
-	width: calc(80% - 10px);
 	text-align: start;
+	margin-top: 20px;
 }
 
 h1.light {
 	margin-bottom: 0;
+	color: #4c4c4c;
 }
 
 p.links a {
 	color: #27a95d;
-	font-family: 'Roboto Slab', sans-serif;
 }
 
 p.links a:hover {
@@ -101,17 +100,55 @@ hr.short {
 
 
 h1 {
-	font-weight: 600;
+	font-weight: 500;
 	font-size: 45px;
-	font-family: 'Roboto Slab', sans-serif;
-	margin-left: 10%;
 	text-align: left;
+	color: #4c4c4c;
 }
 
 h2.light {
 	font-weight: 400;
 	margin-bottom: 5px;
-	font-family: 'Roboto Slab', sans-serif;
+	color: #4c4c4c;
+}
+
+
+.strangeButton {
+	height: 45px;
+	line-height: 45px;
+	width: 200px;
+	border: 2px solid #303F9F;
+	float: right;
+	box-shadow: 5px 5px rgba(0,0,255,0.2);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 170ms ease-in-out;
+    margin-top: -89px;
+}
+
+.strangeButton:hover {
+	background-color: #303F9F;
+	box-shadow: 5px 5px rgba(0,0,255,0.2);
+	color: #fff;
+    cursor: pointer;
+}
+
+.strangeButton a {
+	color: #303F9F;
+	border-bottom: none;
+}
+
+.strangeButton:hover a {
+	color: #fff;
+	border-bottom: none;
+}
+
+.strangeButton a:hover {
+	color: #fff;
+	border-bottom: none;
 }
 
 .projectBox {
@@ -215,14 +252,20 @@ a .card {
 
 @media screen and (max-device-width: 480px) {
 	
+	body {
+		overflow: auto;
+	}
+
+
 	.jumbotron {
-	width: 100%;
-	display: block;
+		width: 100%;
+		display: block;
 	}
 
 	.jumbotron p {
 		font-size: 1rem;
 		line-height: 1.4rem;
+		padding: 0px 15px 0px 15px;
 	}
 
 	.jumbotron p.bio, .jumbotron p.links {
@@ -230,8 +273,20 @@ a .card {
 		line-height: 1.5rem;
 	}
 
+	.jumbotron p.links {
+		margin: 20px 20px 10px 20px;
+
+	}
+
 	.jumbotron h1 {
 		font-size: 28px;
+		text-align: center;
+	}
+
+	.jumbotron .strangeButton {
+		margin-top: 0;
+		float: none;
+		margin-bottom: 20px;
 	}
 
 	.jumbotron h2.light {
