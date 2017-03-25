@@ -2270,7 +2270,7 @@
 
 		.icon.major {
 			text-decoration: none;
-			color: #555;
+			color: #4caf50;
 			cursor: default;
 			display: inline-block;
 			margin: 0 0 1.5em 0;
@@ -3430,3 +3430,21 @@
 		margin-bottom: 0;
 		height: 6em;
 	}
+
+	table tbody tr.transparent {
+		background-color: rgba(255, 255, 255, 0);
+	}
+
+	table tbody tr.transparent img {
+		height: 106px;
+	    width: 106px;
+	}
+
+	table tbody tr td {
+		width: 212px;
+	}
+
+	hr {
+		margin-bottom: 0;
+	}
+	    
