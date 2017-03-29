@@ -1,0 +1,211 @@
+/* Initializations, Font Specification, Margin/Padding Removal */
+
+body, html {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #fafafa;
+}
+
+* {
+	font-family: "proxima-nova", sans-serif;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	border-bottom: 1px dotted #c7c7c7;
+}
+
+a:hover {
+	border-bottom: none;
+}
+
+/* Navigation .nav <Asmir> */
+
+.nav {
+	background-color: #fff;
+	width: 100%;
+	height: 80px;
+	border-bottom: 1px solid #c7c7c7;
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+	.nav ul {
+		margin: 0;
+		padding: 0;
+		text-align: right;
+		font-size: 1.2rem;
+		color: #6f6f6f;
+	}
+
+		.nav li {
+			display: inline;
+			line-height: 80px;
+		}
+
+		.nav li:not(:first-child) {
+			margin-left: 20px;
+		}
+
+
+/* Header .header <Ngolo> */
+
+.header {
+	width: 100%;
+	padding-left: 20%;
+	padding-right: 20%;
+	margin-top: 3%;
+}
+
+	.header h1 {
+		font-weight: 400;
+	}
+
+	.header p {
+		font-size: 1.1rem;
+		color: #737373;
+	}
+
+	.header hr {
+	   	opacity: 0.26;	
+	   	margin-bottom: 25px;
+	}
+
+
+/* Project Grid .project <Nemanja> */
+
+.projectGrid {
+	display: flex;
+	width: 100%;
+	padding-left: 20%;
+	padding-right: 20%;
+	flex-wrap: wrap;
+
+}
+
+	.projectGrid .project {
+		background-color: #fff;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  		transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  		margin-bottom: 30px;
+  		flex-grow: 1;
+  		flex-basis: 0;
+	}
+
+	.projectGrid .project .featureIMG {
+		background-color: #c7c7c7;
+		width: 100%;
+		height: 170px;
+		background-size: cover;
+		background-position: center;
+	}
+
+	.projectGrid .project p {
+		padding: 10px;
+		margin: 0;
+	}
+
+	.projectGrid .project p span.toolbox {
+		color: #949494;
+	}
+
+	.projectGrid .project:not(.project1):not(.project4) {
+		margin-left: 30px;
+	}
+
+	.projectGrid .project:hover {
+		box-shadow: 0 1px 4px rgba(0,0,0,0.33), 0 1px 4px rgba(0,0,0,0.33);
+  		transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  		cursor: pointer;
+	}
+
+/* Footer .footer <Solanke> */
+
+.footer {
+	width: 60%;
+	height: 60px;
+	border-top: 1px solid #c7c7c7;
+	margin-left: 20%;
+	margin-top: 15px;
+	margin-right: 20%;
+	line-height: 60px;
+	font-size: 1.2rem;
+	color: #6f6f6f;
+}
+
+
+
+/* Content Pages */
+
+.header.contentPage h1 {
+	margin-bottom: 0;
+}
+
+.header.contentPage p {
+	margin-top: 0;
+}
+
+.infoBox {
+	padding-left: 20%;
+	padding-right: 20%;
+	background-color: #272727;
+	color: #fff;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.infoBox table {
+	width: 100%;
+	color: #fff;
+	text-align: left;
+	table-layout: fixed;
+}
+
+.infobox table tr td {
+	vertical-align: top;
+}
+
+.mainPost {
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+.mainPost p {
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+	font-weight: 300;
+}
+
+.mainPost ul li {
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+	font-weight: 300;
+	margin-top: 10px;
+}
+
+.mainPost i {
+	font-size: 1rem;
+	line-height: 1.5rem;
+	font-weight: 300;
+	color: #565656;
+
+}
+
+.mainPost h2 {
+	font-weight: 600;
+	margin-bottom: 0;
+    color: #565656;
+}
+
+.mainPost b {
+	color: #565656;
+}
+
+.mainPost b.nh {
+	/* Non-heading */
+	font-weight: 400;
+    color: #000;
+}
