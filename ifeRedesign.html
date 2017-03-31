@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Tanay Vardhan</title>
+		<title>Tanay Vardhan / Inflight Entertainment Redesign</title>
 		<script src="https://use.typekit.net/rjn5ieh.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 		<script src="https://use.fontawesome.com/b91ab2e8da.js"></script>
@@ -8,9 +8,10 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="img/favicon.png" />
 	</head>
-	<body>
+	<body id='anchor0'>
 		<div class='nav asmir'>
 			<ul>
+				<li><a href='index.html'>Home</a></li>
 				<li><a href='about/'>About</a></li>
 				<li><a href='https://github.com/tanayv'><i class="fa fa-github" aria-hidden="true"></i> GitHub</a></li>
 				<li><a href='https://dribbble.com/tanayv1'><i class="fa fa-dribbble" aria-hidden="true" style='font-weight: 600'></i> Dribbble</a></li>
@@ -19,7 +20,7 @@
 
 		<div class='header contentPage'>
 			<h1>Inflight Entertainment Redesign</h1>
-			<p>Reimagining the inflight entertainment system to empathize with passengers on long-haul flights</p>
+			<p>Designing an inflight entertainment system with empathy towards passengers on long-haul flights</p>
 		</div>
 
 		<div class='infoBox contentPage'>
@@ -35,7 +36,7 @@
 					<td>Personal</td>
 					<td>Product Design <br> UX Research <br> </td>
 					<td>January to March 2017</td>
-					<td>Photoshop, InVision</td>
+					<td>Photoshop <br> Adobe XD</td>
 					<td>Unavailable</td>
 				</tr>
 			</table>
@@ -43,18 +44,27 @@
 
 		<div class='mainPost contentPage'>
 			<p align='center'>
-				<img src='img/ifeRedesign/flightInfo.png' style='width: 80%'>
-				
+				<iframe width="100%" height="500" src="https://xd.adobe.com/embed/d0b10d6e-cd0a-4070-b802-2c474337d55b" frameborder="0" allowfullscreen></iframe>
+				Prototype built using Adobe Experience Design
 			</p>
-			<h2>Introduction</h2>
+			<h2>Contents</h2>
+			<ol>
+				<li>Introduction <a href='#anchor1'>[+]</a></li>
+				<li>Observations and Common Design Limitations <a href='#anchor2'>[+]</a></li>
+				<li>Addressing limitations using Low-Fidelity Prototypes <a href='#anchor3'>[+]</a></li>
+				<li>User Testing and Feedback <a href='#anchor4'>[+]</a></li>
+				<li>Incorporating Feedback: High-Fidelity Prototypes <a href='#anchor5'>[+]</a></li>
+				<li>Design Components and Attributions <a href='#anchor6'>[+]</a></li>
+			</ol>
+			<h2 id='anchor1'>Introduction</h2>
 			<p>
-				Inflight entertainment is an integral part of the travel experience on long haul flights, for passengers of all ages, which presents a critical requirement for the system to be designed while prioritizing the needs of users. If the interface is clunky or difficult to navigate, a user might get frustrated and choose the lucrative option of sleeping instead, which doesn't do justice to both the installation cost (around $3 million per plane) and extra fuel required due to the weight of these screens.
+				Inflight entertainment is an integral part of the travel experience on long haul flights, for passengers of all ages, which presents a critical requirement for the system to be designed while prioritizing the needs of users. If the interface is clunky or difficult to navigate, a user might get frustrated and choose the lucrative option of sleeping instead, which doesn't do justice to both the installation cost (around $3 million per plane) and extra fuel required due to the weight of these screens. In addition, this project also explores how the in flight experience might embrace emerging services and integrate with personal devices. 
 			</p>
 			<p>
 				This project aims to understand some of the shortcomings across inflight entertainment systems from different airlines, and address these shortcomings, with consideration to the constraints and limitations on a system that operates on an airplane. I do acknowledge that my user research is limited to my observations and to semi-structured interviews conducted with friends, and designs of some airlines' inflight entertainment system may address some of the issues I present.
 			</p>
 
-			<h2>Observations and Common Design Limitations</h2>
+			<h2 id='anchor2'>Observations and Common Design Limitations</h2>
 			<ul>
 				<li><b>Resistive Touchscreen</b> <br>
 					The resistive touchscreen, though a hardware issue, has severe implications on the IFE system's interface. The resistive screen is <b class='nh'>less responsive</b> to lighter touches than, for example capacitive screens, which make <b class='nh'>scrolling and other interactions such as a pinch-to-zoom seem unintuitive</b> and disjoint. On my flight in January from Amsterdam to Chicago, I observed a user seated next to my try to use the flight path screen, where the only option to interact with the screen was dragging across or pinching the globe on the screen. The user under my inconspicuous ethnography struggled to move the globe to her desired level of zoom due to the resistive screen's lack of response to the pinch gesture, and eventually gave up.
@@ -63,7 +73,7 @@
 					The flight information screen comes under my scrutiny because it rarely contains information that the user truly cares about. The process of human-centered design is all about developing a <b class='nh'>deep empathy</b> for the user, which is why displaying information about when the next meal is going to be served, or information about the user's next flight is definitely more useful.  
 				</li>
 
-				<p align='center'>
+				<p align='center' >
 					<img src='img/iferedesign/delta.jpeg' style='width: 80%'> <br> 
 					<i>Delta's flight information screen just shows technical information and nothing about meals or arrival <br> (Source: https://medium.com/@erolahmed/the-new-delta-in-flight-entertainment-ui-6a91457d2663)</i>
 				</p>
@@ -83,9 +93,144 @@
 				</li>
 			</ul>
 			
-			<h2>Addressing these limitations using Low-Fidelity Prototypes</h2>
-				<!--iframe width="1134" height="856" src="http://invis.io/8UB0UB4KV" frameborder="0" allowfullscreen></iframe-->
-			
+			<h2 id='anchor3'>Addressing limitations using Low-Fidelity Prototypes</h2>
+			<ul>
+				<li><b>General Features</b>
+					<ul>
+						<li>The interface includes a status bar at the top, where the time remaining for the flight, seat-belt and no-smoking signs are displayed.</li>
+						<li>There's also a multipurpose navigation bar at the bottom, which has a search button that allows searching for content on the IFE system from any screen.</li>
+						<li>The navigation bar also includes an indication of what screen the user is on, which allows the user to easily track back towards the home screen.</li>
+						<li>To enable services such as movies and music to continue in the background, and remain accessible, they will show up as a tile in the bottom navigation and can be tapped to resume the the service in question.</li>
+						<li>The interface actively prevents scrolling using only a tracker, and mandates the usage of buttons instead or along with the tracker, with the assumption that it is being used on a resistive touch screen which cannot detect lighter touches</li>
+					</ul>
+				</li>
+			</ul>
+			<p align='center' style='margin-top: 70px;'>
+				<img src='img/iferedesign/paper1.jpg' style='width: 80%'> <br> 
+			</p>
+			<ul>
+				<li><b>Home Screen</b>
+					<ul>
+						<li>Includes a simple, tiled layout for all core services in the system such as movies, TV shows and music.</li>
+						<li>There is a tile to request assistance from a crew member. The user is added to a queue, and if the request is simple, such as a request for a glass of water, it can be communicated using just the IFE system.</li>
+						<li>In addition, there's also a tile to turn the display off, if the screen is not being used.</li> 
+					</ul>
+				</li>
+			</ul>
+			<p align='center' style='margin-top: 70px;'>
+				<img src='img/iferedesign/paper2.jpg' style='width: 80%'> <br> 
+			</p>
+			<ul>
+				<li><b>Flight Information Screen</b>
+					<ul>
+						<li>In addition to the technical information that conventional IFE systems provide in this option, this sketch includes information on when the next meal arrives and what the user can expect when he/she arrives at their destination.</li>
+						<li>The flight path is displayed on a flat board, which doesn't require the user to zoom in or zoom out, and maps out a trajectory of the flight.</li>
+					</ul>
+				</li>
+			</ul>
+			<p align='center' style='margin-top: 70px;'>
+				<img src='img/iferedesign/paper3.jpg' style='width: 80%'> <br> 
+			</p>
+			<ul>
+				<li><b>Live Screen</b>
+					<ul>
+						<li>This screen contains options for connectivity and integration with personal devices. </li>
+						<li>The phone connection card includes options to synchronise applications such as Spotify, Netflix with services in the IFE system so users can access their music or movie libraries through the system.</li>
+						<li>The news tile provides news based on interests determined from synchronised news applications on devices.</li>
+						<li>There's also an option to manage data usage, upgrade to a new inflight WiFi plan, and manage user devices connected to the inflight WiFi.</li>
+						<li>Also includes options for sending text messages and calling in the event that users travelling together do not get seats next to each other and would want to speak. The call however would require earphones.</li>
+						<li>Also includes a game library.</li>
+					</ul>
+				</li>
+			</ul>
+			<p align='center' style='margin-top: 70px;'>
+				<img src='img/iferedesign/paper6.jpg' style='width: 80%'> <br> 
+			</p>
+			<ul>
+				<li><b>Search</b>
+					<ul>
+						<li>The search screen provides an on-screen keyboard to type in a query.</li>
+						<li>Also includes a panel to filter search results based on content type.</li>
+						<li>Keyboard automatically collapses to display more search results.</li>
+					</ul>
+				</li>
+			</ul>
+			<p align='center' style='margin-top: 70px;'>
+				<img src='img/iferedesign/paper4.jpg' style='width: 80%'> <br> <br>
+				<img src='img/iferedesign/paper5.jpg' style='width: 80%'> <br>
+			</p>
+			<ul>
+				<li><b>Music and Content</b>
+					<ul>
+						<li>This set of screens demonstrates how entertainment content such as music, TV shows and movies will be organized. </li>
+						<li>The main screen will include simplified options to look for content, which will lead into a two-column view with a grid and details column</li>
+					</ul>
+				</li>
+			</ul>
+
+			<h2 id='anchor4'>User Testing and Feedback</h2>
+			<ul>
+				<li><b>Audience</b> <br> Since the target audience for an inflight entertainment system is travellers on long-haul flights, I decided to choose international students as the main userbase to gather feedback from and test my low-fidelity prototypes on. It can be estimated than an international student from Asia makes at least 4 long-haul flights in a year, so I took my prototypes to the Illini Union, a building where many students meet to study or take part in recreational activities.</li>
+				<li><b>Key Takeaways</b>
+					<ul>
+						<li>Potential users considered the home screen to be an oversimplification, and wanted to see options such as Games and Shopping Catalogues on the home screen. Therefore, I decided to give the option to have multiple sets of tiles for the home screen, which can be navigated across using arrows.</li>
+
+						<li>I also observed that once the user completed a task such as checking gate information, or playing a playlist, they sought to turn the screen off, and this could only be done by navigation all the way back to the home screen. Thus, I decided to reposition the power button to the status bar on top, so that the screen can be powered off from all screens.</li>
+
+						<li>Users were receptive to the idea of having an option to synchronize their mobile phone with the system, as conserving battery is often a priority on long-haul flights, so not listening to music or watching movies on the device can be a boon.</li>
+
+						<li>Users didn't have the option to discard a search and go back to whatever screen they tapped the search button, and this was because I accidentally omitted that in my prototype!</li>
+
+						<li>There was no clear consensus about what kind of information users consider most valuable, but meal timings/contents somewhat emerged as the most wanted option, which reaffirms the importance of including them in the Flight Information screen.</li>
+					</ul>
+					<p align='center'>
+						<img src='img/iferedesign/survey.jpg' style='width: 80%'> <br> 
+					</p>
+
+				</li>
+			</ul>
+		
+			<h2 id='anchor5'>Incorporating Feedback: High-Fidelity Prototypes</h2>
+			<p align='center'>
+				<img src='img/iferedesign/finalHome.png' style='width: 92%'> <br>
+				<i>The Home Screen</i>
+			</p>
+
+			<p align='center'>
+				<img src='img/iferedesign/finalFlightInfo.png' style='width: 92%'> <br>
+				<i>Flight Information Screen</i>
+			</p>
+
+			<p align='center'>
+				<img src='img/iferedesign/finalLive.png' style='width: 92%'> <br>
+				<i>The Live Screen</i>
+			</p>
+
+			<p align='center'>
+				<img src='img/iferedesign/finalSearch.png' style='width: 92%'> <br>
+				<i>The Search Screen</i>
+			</p>
+
+			<h2 id='anchor6'>Design Components and Attributions</h2>
+			<h3> Icon Attributions (All licensed under <a href='https://creativecommons.org/licenses/by/3.0/us/'>Creative Commons 3.0</a>) </h3>
+				<ul>
+					<li>Video Distribution Package by Jack Zwanenburg from the Noun Project</li>
+					<li>Television by Hopkins from the Noun Project</li>
+					<li>connection by Souvik Bhattacharjee from the Noun Project</li>
+					<li>Airplane by Yair Cohen from the Noun Project</li>
+					<li>Headphones by Anastasia Latysheva from the Noun Project</li>
+					<li>teamwork by Kelig Le Luron from the Noun Project</li>
+					<li>Airplane by Patricia from the Noun Project</li>
+					<li>hourglass by ProSymbols from the Noun Project</li>
+					<li>Map by gira Park from the Noun Project</li>
+					<li>No Smoking by Gan Khoon Lay from the Noun Project</li>
+					<li>Shopping Bag by Di Sang from the Noun Project</li>
+				</ul>
+
+			<p style='float: left'> <a href='#anchor0'><i class="fa fa-arrow-up" aria-hidden="true"></i> Back to top</a> </p>
+			<p style='float: right'> <a href=''>Next Project: Betelgeuse <i class="fa fa-arrow-right " aria-hidden="true"></i></a> </p>
+			<div style="clear: both;"></div>
+				
 		</div>
 		
 

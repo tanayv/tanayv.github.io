@@ -186,6 +186,13 @@ a:hover {
 	margin-top: 10px;
 }
 
+.mainPost ol li {
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+	font-weight: 300;
+	margin-top: 10px;
+}
+
 .mainPost i {
 	font-size: 1rem;
 	line-height: 1.5rem;
