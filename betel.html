@@ -33,8 +33,8 @@
 					<th>PDF</th>
 				</tr>
 				<tr>
-					<td>Coursework <br> (CS 465)</td>
-					<td>Product Design</td>
+					<td>Coursework <br> <a href='http://www.cs.uiuc.edu/courses/profile/CS465'>(CS 465)</a></td>
+					<td>Interaction Design</td>
 					<td>February 2017 <br> (2 weeks)</td>
 					<td>Photoshop <br> Adobe XD</td>
 					<td>Unavailable</td>
@@ -47,159 +47,42 @@
 			
 			<h2 id='anchor1'>Introduction</h2>
 			<p>
-				The design problem presented through this course assignment was  
+				The goal of this project was building an application that leverages the already thriving concept of music streaming, and integrates it with user location. The prompt of the assignment was fairly open-ended but required me to create user archetypes, develop an app's concept based on these archetypes, and sketch low-fidelity prototypes. I decided to go one step further, and finalize these sketches into high-fidelity prototypes.
 			</p>
+
+			<h2 id='anchor2'>User Archetypes</h2>
 			<p>
-				This project aims to understand some of the shortcomings across inflight entertainment systems from different airlines, and address these shortcomings, with consideration to the constraints and limitations on a system that operates on an airplane. I do acknowledge that my user research is limited to my observations and to semi-structured interviews conducted with friends, and designs of some airlines' inflight entertainment system may address some of the issues I present.
+				For developing archetypes, I interviewed five people who I consider potential users in my opinion and inquired about possible situations in which their choice of music is dependent on their location. I also asked about their experience listening to music while moving around, and how that experience can be improved. The archetypes have been created from overlap in behaviours between the different answers that I got from the interviews.
+			</p>
+			<ul>
+				<li><b>Urban Explorer</b> <br>
+					The urban explorer lives in a big city, and often tries to go around the city in search of new places. The purpose of the adventure is rarely clearly defined, and this adventure might be a time for inner-reflection which is why the explorer may choose to wander alone. This person will be listening to music throughout, while walking, during commute and even when the adventure might temporarily halt for a coffee and work break.Therefore, this person will easily get bored of his/her own library and desire to find new and fresh music.
+				</li>
+				<li><b>The Hiker</b> <br>
+					The hiker also embarks on an adventure and likes to keep music for company. Sometimes, when hiking with a group, the hiker may also want to play music around a campfire. In addition, a big problem that the hiker faces is the loss of connection, which creates a need to store music offline for listening. 
+				</li>
+				<li><b>The Globetrotter</b> <br>
+					The globetrotter is interested in travelling to new countries and experiencing different cultures. This person likes to learn new languages and listening to foreign music. Using a service that can help discover local music would bridge the gap between cultures using music.
+				</li>
+			</ul>
+
+			<h2 id='anchor2'>Concept Development</h2>
+			<p>
+				After building archetypes, I decided to go with an application that interacts with real-world landmarks, and allows users to save playlists at these “music locations”. This idea is inspired by Ingress, a game by Niantic Labs, which is also an inspiration for the viral game Pokemon Go. People can publish their own playlists at these locations, and make them available to everyone using the application or choose to restrict it to only their friends or only for their own use. This addresses one of the requirement for the Globetrotter archetype as this music discovery feature helps to constantly find new music, and if in a foreign country, it can be a great source for local music.
+			</p>
+				
+			<h2 id='anchor3'>Low-Fidelity Prototypes</h2>
+
+			<p align='center'>
+				<img src='img/betel/paper.jpg' style='width: 80%'> 
 			</p>
 
-			<h2 id='anchor2'>Observations and Common Design Limitations</h2>
-			<ul>
-				<li><b>Resistive Touchscreen</b> <br>
-					The resistive touchscreen, though a hardware issue, has severe implications on the IFE system's interface. The resistive screen is <b class='nh'>less responsive</b> to lighter touches than, for example capacitive screens, which make <b class='nh'>scrolling and other interactions such as a pinch-to-zoom seem unintuitive</b> and disjoint. On my flight in January from Amsterdam to Chicago, I observed a user seated next to my try to use the flight path screen, where the only option to interact with the screen was dragging across or pinching the globe on the screen. The user under my inconspicuous ethnography struggled to move the globe to her desired level of zoom due to the resistive screen's lack of response to the pinch gesture, and eventually gave up.
-				</li>
-				<li><b>The Flight Information Screen</b> <br>
-					The flight information screen comes under my scrutiny because it rarely contains information that the user truly cares about. The process of human-centered design is all about developing a <b class='nh'>deep empathy</b> for the user, which is why displaying information about when the next meal is going to be served, or information about the user's next flight is definitely more useful.  
-				</li>
-
-				<p align='center' >
-					<img src='img/ifeRedesign/delta.jpeg' style='width: 80%'> <br> 
-					<i>Delta's flight information screen just shows technical information and nothing about meals or arrival <br> (Source: https://medium.com/@erolahmed/the-new-delta-in-flight-entertainment-ui-6a91457d2663)</i>
-				</p>
+			<p>
+				The basic idea of the application is to create hotspots for many users to store and discover music. An integral part of the app is the first map screen, which guides the user to music locations in their proximity. Once the user is close enough, he/she can browse through the music selection available at that particular location and even contribute to it. At this stage in the app's development, I hadn't decided where the application would source its music from, which is why the exact processes of how a playlist can be imported or played are not reflected in these sketches. 
+			</p>
 			
-				<li><b>Integration with devices and services</b> <br>
-					With the advent of inflight WiFi, there is scope for greater levels of interaction between personal devices, which the current generation of inflight entertainment systems overlook. <br> Furthermore, many IFE systems remain incapable of multi-tasking with core services. For instance, with the Delta IFE system, it is impossible to play games while listening to music. 
-				</li>
-				<li><b>Searching for content</b> <br>
-					Far too many IFE systems lack the simple option of searching for content. If I have a particular movie or music album in mind, I should be able to find it without having to navigate around a vast library grouped by alphabet sets. From my user research, only British Airways and the new Delta IFE system provided search options on high-level screens such as the home screen.
-				</li>
-				<p align='center'>
-					<img src='img/ifeRedesign/lufthansa.jpg' style='width: 80%'> <br> 
-					<i>Lufthansa's inflight entertainment fails to provide users with a high-level option to search for content <br> (Source: http://www.s-v.de/detail-image.php?id=744)</i>
-				</p>
-				<li><b>Screen Locking</b> <br>
-					Another big design problem I found on my KLM flight was that the remote was stowed inside the armrest. While sleeping, I accidentally pressed a button on the remote while moving in my seat that caused the overhead light to turn on, which infuriated the passengers sitting next to me. Even when watching movies, there is no way to lock the remote to prevent unintentional button presses. The remote is often moved to a spot below the screen, but for the scope of this project, all limitations will be addressed through changes in the interface.
-				</li>
-			</ul>
+
 			
-			<h2 id='anchor3'>Addressing limitations using Low-Fidelity Prototypes</h2>
-			<ul>
-				<li><b>General Features</b>
-					<ul>
-						<li>The interface includes a status bar at the top, where the time remaining for the flight, seat-belt and no-smoking signs are displayed.</li>
-						<li>There's also a multipurpose navigation bar at the bottom, which has a search button that allows searching for content on the IFE system from any screen.</li>
-						<li>The navigation bar also includes an indication of what screen the user is on, which allows the user to easily track back towards the home screen.</li>
-						<li>To enable services such as movies and music to continue in the background, and remain accessible, they will show up as a tile in the bottom navigation and can be tapped to resume the the service in question.</li>
-						<li>The interface actively prevents scrolling using only a tracker, and mandates the usage of buttons instead or along with the tracker, with the assumption that it is being used on a resistive touch screen which cannot detect lighter touches</li>
-					</ul>
-				</li>
-			</ul>
-			<p align='center' style='margin-top: 70px;'>
-				<img src='img/ifeRedesign/paper1.jpg' style='width: 80%'> <br> 
-			</p>
-			<ul>
-				<li><b>Home Screen</b>
-					<ul>
-						<li>Includes a simple, tiled layout for all core services in the system such as movies, TV shows and music.</li>
-						<li>There is a tile to request assistance from a crew member. The user is added to a queue, and if the request is simple, such as a request for a glass of water, it can be communicated using just the IFE system.</li>
-						<li>In addition, there's also a tile to turn the display off, if the screen is not being used.</li> 
-					</ul>
-				</li>
-			</ul>
-			<p align='center' style='margin-top: 70px;'>
-				<img src='img/ifeRedesign/paper2.jpg' style='width: 80%'> <br> 
-			</p>
-			<ul>
-				<li><b>Flight Information Screen</b>
-					<ul>
-						<li>In addition to the technical information that conventional IFE systems provide in this option, this sketch includes information on when the next meal arrives and what the user can expect when he/she arrives at their destination.</li>
-						<li>The flight path is displayed on a flat board, which doesn't require the user to zoom in or zoom out, and maps out a trajectory of the flight.</li>
-					</ul>
-				</li>
-			</ul>
-			<p align='center' style='margin-top: 70px;'>
-				<img src='img/ifeRedesign/paper3.jpg' style='width: 80%'> <br> 
-			</p>
-			<ul>
-				<li><b>Live Screen</b>
-					<ul>
-						<li>This screen contains options for connectivity and integration with personal devices. </li>
-						<li>The phone connection card includes options to synchronise applications such as Spotify, Netflix with services in the IFE system so users can access their music or movie libraries through the system.</li>
-						<li>The news tile provides news based on interests determined from synchronised news applications on devices.</li>
-						<li>There's also an option to manage data usage, upgrade to a new inflight WiFi plan, and manage user devices connected to the inflight WiFi.</li>
-						<li>Also includes options for sending text messages and calling in the event that users travelling together do not get seats next to each other and would want to speak. The call however would require earphones.</li>
-						<li>Also includes a game library.</li>
-					</ul>
-				</li>
-			</ul>
-			<p align='center' style='margin-top: 70px;'>
-				<img src='img/ifeRedesign/paper6.jpg' style='width: 80%'> <br> 
-			</p>
-			<ul>
-				<li><b>Search</b>
-					<ul>
-						<li>The search screen provides an on-screen keyboard to type in a query.</li>
-						<li>Also includes a panel to filter search results based on content type.</li>
-						<li>Keyboard automatically collapses to display more search results.</li>
-					</ul>
-				</li>
-			</ul>
-			<p align='center' style='margin-top: 70px;'>
-				<img src='img/ifeRedesign/paper4.jpg' style='width: 80%'> <br> <br>
-				<img src='img/ifeRedesign/paper5.jpg' style='width: 80%'> <br>
-			</p>
-			<ul>
-				<li><b>Music and Content</b>
-					<ul>
-						<li>This set of screens demonstrates how entertainment content such as music, TV shows and movies will be organized. </li>
-						<li>The main screen will include simplified options to look for content, which will lead into a two-column view with a grid and details column</li>
-					</ul>
-				</li>
-			</ul>
-
-			<h2 id='anchor4'>User Testing and Feedback</h2>
-			<ul>
-				<li><b>Audience</b> <br> Since the target audience for an inflight entertainment system is travellers on long-haul flights, I decided to choose international students as the main userbase to gather feedback from and test my low-fidelity prototypes on. It can be estimated than an international student from Asia makes at least 4 long-haul flights in a year, so I took my prototypes to the Illini Union, a building where many students meet to study or take part in recreational activities.</li>
-				<li><b>Key Takeaways</b>
-					<ul>
-						<li>Potential users considered the home screen to be an oversimplification, and wanted to see options such as Games and Shopping Catalogues on the home screen. Therefore, I decided to give the option to have multiple sets of tiles for the home screen, which can be navigated across using arrows.</li>
-
-						<li>I also observed that once the user completed a task such as checking gate information, or playing a playlist, they sought to turn the screen off, and this could only be done by navigation all the way back to the home screen. Thus, I decided to reposition the power button to the status bar on top, so that the screen can be powered off from all screens.</li>
-
-						<li>Users were receptive to the idea of having an option to synchronize their mobile phone with the system, as conserving battery is often a priority on long-haul flights, so not listening to music or watching movies on the device can be a boon.</li>
-
-						<li>Users didn't have the option to discard a search and go back to whatever screen they tapped the search button, and this was because I accidentally omitted that in my prototype!</li>
-
-						<li>There was no clear consensus about what kind of information users consider most valuable, but meal timings/contents somewhat emerged as the most wanted option, which reaffirms the importance of including them in the Flight Information screen.</li>
-					</ul>
-					<p align='center'>
-						<img src='img/ifeRedesign/survey.jpg' style='width: 80%'> <br> 
-					</p>
-
-				</li>
-			</ul>
-		
-			<h2 id='anchor5'>Incorporating Feedback: High-Fidelity Prototypes</h2>
-			<p align='center'>
-				<img src='img/ifeRedesign/finalHome.png' style='width: 92%'> <br>
-				<i>The Home Screen</i>
-			</p>
-
-			<p align='center'>
-				<img src='img/ifeRedesign/finalFlightInfo.png' style='width: 92%'> <br>
-				<i>Flight Information Screen</i>
-			</p>
-
-			<p align='center'>
-				<img src='img/ifeRedesign/finalLive.png' style='width: 92%'> <br>
-				<i>The Live Screen</i>
-			</p>
-
-			<p align='center'>
-				<img src='img/ifeRedesign/finalSearch.png' style='width: 92%'> <br>
-				<i>The Search Screen</i>
-			</p>
-
 			<h2 id='anchor6'>Design Components and Attributions</h2>
 			<h3> Icon Attributions (All licensed under <a href='https://creativecommons.org/licenses/by/3.0/us/'>Creative Commons 3.0</a>) </h3>
 				<ul>
@@ -217,7 +100,7 @@
 				</ul>
 
 			<p style='float: left'> <a href='#anchor0'><i class="fa fa-arrow-up" aria-hidden="true"></i> Back to top</a> </p>
-			<p style='float: right'> <a href=''>Next Project: Betelgeuse <i class="fa fa-arrow-right " aria-hidden="true"></i></a> </p>
+			<p style='float: right'> <a href='embark.html'>Next Project: Embark <i class="fa fa-arrow-right " aria-hidden="true"></i></a> </p>
 			<div style="clear: both;"></div>
 				
 		</div>
@@ -225,7 +108,7 @@
 
 		<div class='footer solanke'>
 			<p style='float: left'> © Tanay Vardhan, 2017 </p>
-			<p style='float: right'> <a href=''><i class="fa fa-futbol-o" aria-hidden="true"></i></a> &nbsp <a href=''><i class="fa fa-spotify" aria-hidden="true"></i></a> &nbsp   <a href='https://medium.com/@tanayvardhan'><i class="fa fa-medium" aria-hidden="true"></i></a></p>
+			<p style='float: right'> <a href='https://github.com/tanayv/fm-masterclass'><i class="fa fa-futbol-o" aria-hidden="true"></i></a> &nbsp <a href='https://open.spotify.com/user/tanayvardhan' target='_blank'><i class="fa fa-spotify" aria-hidden="true"></i></a> &nbsp   <a href='https://medium.com/@tanayvardhan' target='_blank'><i class="fa fa-medium" aria-hidden="true"></i></a></p>
 			<div style="clear: both;"></div>
 		</div>
 	</body>
