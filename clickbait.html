@@ -58,10 +58,19 @@
 
 
 			<h2>Our Solution</h2>
-			<a href='http://clickbait-repel.herokuapp.com'>Demo</a> &nbsp <a href='https://github.com/tanayv/clickbait-repel'> GitHub
-			<p>We trained a sentence-based text-classification model on our own data, which created a distinction between clickbait headlines and normally structured </p>
+			<a href='http://clickbait-repel.herokuapp.com'>Demo</a> &nbsp <a href='https://github.com/tanayv/clickbait-repel'> GitHub</a>
+			<p>We trained a sentence-based text-classification model on our own data, which created a distinction between clickbait headlines and normally structured news headlines. We then constructed an API around this classifier, which can be accessed using a GET or POST HTTP request.</p>
+			<center><img src='img/clickbait2.jpg' style='width: 80%'></center>
 			
-			
+
+			<h2>What's Next</h2>
+			<ul>
+				<li><b>Making the classifier robust</b> <br>
+				The API's success largely depends on how fast it can process requests and respond. Currently, the API is not fast enough to produce responses for a large number of requests, and that is something that could be improved by saving our classifier as loadable object (Pickle). </li>
+				<li><b>Chrome Extension</b> <br>
+				Our initial vision for the project culminates into a chrome extension that can parse news feeds on social media, detect clickbait headlines, and provide the formation being concealed through the clickbait, or directing the user to a more reputable source that can provide more valuable information.</li>
+			</ul>
+				
 
 			<p style='float: left'> <a href='#anchor0'><i class="fa fa-arrow-up" aria-hidden="true"></i> Back to top</a> </p>
 			<p style='float: right'> <a href='iferedesign.html'>Next Project: Inflight Entertainment Redesign <i class="fa fa-arrow-right " aria-hidden="true"></i></a> </p>

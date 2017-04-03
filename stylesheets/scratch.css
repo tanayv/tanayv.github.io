@@ -219,3 +219,34 @@ a:hover {
 	font-weight: 400;
     color: #000;
 }
+
+@media only screen and (max-width: 500px) {
+    .mainPost {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+
+	.header {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+
+	.footer {
+		height: 60px;
+		margin-left: 5%;
+		margin-top: 15px;
+		width: 90%;
+	}
+
+	.nav {
+		width: 100%;
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+
+	.infoBox {
+		padding-left: 2%;
+		padding-right: 2%;
+		font-size: 0.9rem;
+	}
+}
