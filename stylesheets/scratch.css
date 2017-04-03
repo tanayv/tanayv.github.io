@@ -274,5 +274,10 @@ a:hover {
 		display: none;
 	}
 
+	iframe {
+		overflow: auto;
+		width: 100%;
+	}
+
 
 }
