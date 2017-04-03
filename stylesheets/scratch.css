@@ -249,4 +249,25 @@ a:hover {
 		padding-right: 2%;
 		font-size: 0.9rem;
 	}
+
+	.infoBox table {
+		font-size: 0.75rem;
+		vertical-align: top;
+	}
+
+	.projectGrid {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+
+	.projectGrid .project {
+		width: 100%;
+		margin-bottom: 18px;
+		flex-basis: initial;
+	}
+
+	.projectGrid .project:not(.project1):not(.project4) {
+		margin-left: 0px;
+	}
+
 }
