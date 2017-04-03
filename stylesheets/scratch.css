@@ -270,4 +270,9 @@ a:hover {
 		margin-left: 0px;
 	}
 
+	.nav ul li.special a span.normText {
+		display: none;
+	}
+
+
 }
