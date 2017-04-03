@@ -220,6 +220,23 @@ a:hover {
     color: #000;
 }
 
+span.mobileOnly {
+	display: none;
+}
+
+h3.button {
+    border: 3px solid #272727;
+    box-shadow: 5px 5px rgba(4, 4, 4, 0.2);
+	padding: 30px;
+	font-weight: 400;
+	width: 60%;
+}
+
+h3.button:active {
+  background-color: #272727;
+  color: #fff;
+}
+
 @media only screen and (max-width: 500px) {
     .mainPost {
 		padding-left: 5%;
@@ -277,6 +294,14 @@ a:hover {
 	iframe {
 		overflow: auto;
 		width: 100%;
+	}
+
+	span.mobileOnly {
+		display: block;
+	}
+
+	span.desktopOnly {
+		display: none;
 	}
 
 
