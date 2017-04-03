@@ -3144,6 +3144,7 @@ hr {
   }
 }
 .nav-mobile-toggle {
+  line-height: 2em;
   font-size: 2em;
   color: #fff;
   transition: 0.2s linear;
@@ -4666,6 +4667,8 @@ p.sim80 img.med, p.sim60 img.med {
   margin-bottom: 1rem;
 }
 
+
+
 .row.simHeader {
   width: 100%;
   height: 200px;
@@ -4680,8 +4683,16 @@ p.sim80 img.med, p.sim60 img.med {
 
 .row.simHeader.ed {
   background-image: url('../img/edHdr.png');
-
 }
+
+.row.simHeader.fin {
+  background-image: url('../img/finHdr.png');
+}
+
+.row.simHeader.vbanks {
+  background-image: url('../img/vbanksHdr.png');
+}
+
 
 .row.simContent h3, .row.simContent h4 {
   margin: 0% 10% 1.9rem 10%;
@@ -4720,6 +4731,32 @@ p.sim80 img.med, p.sim60 img.med {
     line-height: 1.5rem;
 }
 
+section.slider {
+  padding-left: 30%;
+  padding-right: 30%;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+}
+
+section.slider ul h3 {
+  font-size: 1.3rem;
+  margin-top: 40px;
+}
+
+
+ul.sim60 {
+    width: 100%;
+  padding: 0% 20% 0% 20%;
+  text-align: left;
+ 
+}
+
+ul.sim60 li {
+   font-size: 1.2rem;
+  line-height: 1.9rem;
+}
+
 
 @media all and (max-width: 767px) {
   .simSliderCompanion {
@@ -4736,3 +4773,6 @@ p.sim80 img.med, p.sim60 img.med {
   }
 }
 
+footer {
+  padding-bottom: 1rem !important;
+}
