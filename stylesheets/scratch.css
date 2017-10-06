@@ -5,7 +5,7 @@ body, html {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	background-color: #fafafa;
+	background-color: #fff;
 }
 
 * {
@@ -367,7 +367,7 @@ a:hover {
 .full-picture {
 	width: 100%;
 	height: 400px;
-	background-size: contain;
+	background-size: 90%;
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -435,7 +435,7 @@ h3.button:active {
 		flex-basis: initial;
 	}
 
-	.projectGrid .project:not(.project1):not(.project4) {
+	.projectGrid .project:not(.project1):not(.project3) {
 		margin-left: 0px;
 	}
 
