@@ -3,10 +3,9 @@
 		<title>Tanay Vardhan</title>
 		<script src="https://use.typekit.net/rjn5ieh.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
-		<script src="https://use.fontawesome.com/b91ab2e8da.js"></script>
-		<link href='stylesheets/scratch.css' rel='stylesheet' type='text/css'>
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="img/favicon.png" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<link href='stylesheets/styles.css' rel='stylesheet' type='text/css'>
+		<meta name="viewport" content="width=device-width"/>
 	</head>
 	<body>
 		<script>
@@ -18,75 +17,82 @@
 			ga('create', 'UA-106121279-1', 'auto');
 			ga('send', 'pageview');
 		</script>
-		<div class='nav asmir'>
-			<ul>
-				<li class='special'><a href='https://github.com/tanayv'><i class="fa fa-github" aria-hidden="true"></i> <span class='normText'> </span></a></li>
-				<li class='special'><a href='https://dribbble.com/tanayv1'><i class="fa fa-dribbble" aria-hidden="true" style='font-weight: 600'></i> <span class='normText'> </span></a></li>
-				<li class='special'><a href='https://twitter.com/tanayv1'><i class="fa fa-twitter" aria-hidden="true" style='font-weight: 600'></i> <span class='normText'> </span></a></li>
-			</ul>
-		</div>
-		<div class='header ngolo'>
-			<h1 class='name'>Tanay Vardhan</h1>
-			<p>Hello! I'm a developer, designer and engineer attending the <a href='https://illinois.edu'>University of Illinois at Urbana-Champaign</a>. I'm interested in finding and building solutions to problems across disciplines and designing experiences that have a meaningful impact.</p>
-			<!--<div class='centerShip'>
-				<a href='about.html'><div class='button'>About Me</div></a>
-				<a href='TanayVardhanResume.pdf'><div class='button'>Resume</div></a>
-			</div>-->
-			<br>
-		</div> 
-		<div class='projectGrid nemanja'>
-			
-			<div class='project project1'>
-				<a href='ifeRedesign.html'>
-				<div class='featureIMG' style="background-image: url('img/iferedesigntile.jpg')">				
-				</div>
-				<p><span class='toolbox'>PRODUCT DESIGN</span> <br> <b>Inflight Entertainment Redesign</b>
-				<br>
-				Designing an inflight entertainment system with empathy towards 
-				passengers on long-haul flights. </p>
-				</a>
-			</div>
-			
-			<div class='project project4'>
-				<a href='hackathon.html'>
-				<div class='featureIMG' style="background-image: url('img/embark.jpg')">			
-				</div>
-				<p><span class='toolbox'>DESIGN + DEVELOPMENT</span> <br> <b>Hackathon Journal</b>
-				<br>
-				A showcase of some projects I've worked on at various hackathons, along with my 
-				experience building them!</p>
-				</a>
-			</div>
-				
-			
-		</div>
-		<div class='projectGrid nemanja'>
-			<div class='project project3'>
-				<a href='formula.html'>
-				<div class='featureIMG' style="background-image: url('img/formula.jpg')">				
-				</div>
-				<p><span class='toolbox'>SOFTWARE ENGINEERING, PRINT DESIGN</span> <br> <b>Illini Motorsports</b>
-				<br>
-				My involvement with my university's Formula SAE team</p>
-				</a>
-			</div>
-			<div class='project project2'>
-				<a href='clickbait.html'>
-				<div class='featureIMG' style="background-image: url('img/clickbait.jpg')">				
-				</div>
-				<p><span class='toolbox'>MACHINE LEARNING</span> <br> <b>Clickbait Repel</b>
-				<br>
-				How can we make the web more hostile towards sensationalist and poorly-researched news?</p>
-				</a>
-			</div>
-			
-			
-		</div>
+		<section class='nav jorginho'>
+			<div class="link"><a href="https://github.com/tanayv"><i class="fab fa-github"></i>GitHub</a></div>
+			<div class="link"><a href="https://medium.com/@tanayvardhan"><i class="fab fa-medium"></i>Medium</a></div>
+			<div class="link"><a href="https://dribbble.com/tanayv1"><i class="fab fa-dribbble"></i>Dribbble</a></div>
+			<div class="link"><a href="./TanayVardhanResume.pdf"><i class="fas fa-file-pdf"></i>Resume</a></div>
+		</section>
 
-		<div class='footer solanke'>
-			<p style='float: left'> © Tanay Vardhan, 2017 </p>
-			<p style='float: right'> <a href='https://github.com/tanayv/fm-masterclass'><i class="fa fa-futbol-o" aria-hidden="true"></i></a> &nbsp <a href='https://open.spotify.com/user/tanayvardhan' target='_blank'><i class="fa fa-spotify" aria-hidden="true"></i></a> &nbsp   <a href='https://medium.com/@tanayvardhan' target='_blank'><i class="fa fa-medium" aria-hidden="true"></i></a></p>
-			<div style="clear: both;"></div>
-		</div>
+		<section class='header alvaro'>
+			<h1 class='name'>Tanay Vardhan</h1>
+			<p class="bio">Hello, I'm a frontend engineer, studying at the <a href="https://illinois.edu">University of Illinois at Urbana-Champaign</a>. I'm passionate about building web applications to visualize data, automate tedious tasks for users, and solve problems across varied disciplines. While building applications, I like pay attention to user experience, and adopt a product-centric approach. This past summer, I interned with the digital solutions group at <a href="https://amadeus.com/en">Amadeus</a>. Here are some of my projects and experiences: </p>
+		</section> 
+
+
+		<section class="projects ruben">
+			<div class="project-row">
+				<div class='project project1'>
+					<a href='https://medium.com/@tanayvardhan/scaling-the-language-barrier-in-french-rap-with-react-and-redux-a9b3a9348f77'>
+					<div class='thumbnail' style="background-image: url('img/charo.png')">				
+					</div>
+					<div class="content">
+					<span class='toolbox'>FRONTEND ENGINEERING</span>
+					<b>Charo</b>
+						<p>
+						Automating the process of looking up and translating lyrics of French rap songs using React and Redux
+						</p>
+					</a>
+					</div>
+				</div>
+				<div class='project project1'>
+					<a href='hackathon.html'>
+					<div class='thumbnail' style="background-image: url('img/embark.jpg')">				
+					</div>
+					<div class="content">
+					<span class='toolbox'>DESIGN + DEVELOPMENT</span>
+					<b>Hackathon Journal</b>
+						<p>
+						A showcase of some projects I've worked on at various hackathons, along with my 
+						experience building them. </p>
+					</a>
+					</div>
+				</div>
+			</div>
+			<div class="project-row">
+				<div class='project project1'>
+					<a href='ifeRedesign.html'>
+					<div class='thumbnail' style="background-image: url('img/iferedesigntile.jpg')">				
+					</div>
+					<div class="content">
+					<span class='toolbox'>PRODUCT DESIGN</span>
+					<b>Inflight Entertainment Redesign</b>
+						<p>
+						Designing an inflight entertainment system with empathy towards 
+						passengers on long-haul flights. </p>
+					</a>
+					</div>
+				</div>
+				<div class='project project1'>
+					<a href='clickbait.html'>
+					<div class='thumbnail' style="background-image: url('img/clickbait.jpg')">				
+					</div>
+					<div class="content">
+					<span class='toolbox'>MACHINE LEARNING</span>
+					<b>Clickbait Repel</b>
+						<p>
+						How can we make the web more hostile towards sensationalist and poorly-researched news?
+						</p>
+					</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="footer eden">
+			<p class="left">© Tanay Vardhan, 2018</p>
+			<p class="right">tanayvardhan [at] gmail [dot] com</p>
+		</section>
+
 	</body>
 </html>
