@@ -1,12 +1,11 @@
 <html>
 	<head>
 		<title>Tanay Vardhan / Hackathon Journal</title>
-		<script src="https://use.typekit.net/iie5mbq.js"></script>
+		<script src="https://use.typekit.net/rjn5ieh.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
-		<script src="https://use.fontawesome.com/b91ab2e8da.js"></script>
-		<link href='stylesheets/scratch.css' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<link href='stylesheets/styles.css' rel='stylesheet' type='text/css'>
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="img/favicon.png" />
 	</head>
 	<body id='anchor0'>
 		<script>
@@ -19,35 +18,68 @@
 			ga('send', 'pageview');
 		</script>
 		
-		<div class='nav asmir'>
-			<ul>
-				<li class='special'><a href='http://tanay.io'><i class="fa fa-home" aria-hidden="true"></i> <span class='normText'> </span></a></li>
-				<li class='special'><a href='https://github.com/tanayv'><i class="fa fa-github" aria-hidden="true"></i> <span class='normText'> </span></a></li>
-				<li class='special'><a href='https://dribbble.com/tanayv1'><i class="fa fa-dribbble" aria-hidden="true" style='font-weight: 600'></i> <span class='normText'> </span></a></li>
-				<li class='special'><a href='https://twitter.com/tanayv1'><i class="fa fa-twitter" aria-hidden="true" style='font-weight: 600'></i> <span class='normText'> </span></a></li>
-			</ul>
-		</div>
+		<section class="nav jorginho">
+			<div class="linkbox">
+				<div class="link"><a href="https://github.com/tanayv"><i class="fab fa-github"></i>GitHub</a></div>
+				<div class="link"><a href="https://medium.com/@tanayvardhan"><i class="fab fa-medium"></i>Medium</a></div>
+				<div class="link"><a href="https://dribbble.com/tanayv1"><i class="fab fa-dribbble"></i>Dribbble</a></div>
+				<div class="link"><a href="https://open.spotify.com/user/tanayvardhan?si=e0ULHUqEQt6wBtqnyAXBbA"><i class="fab fa-spotify"></i>Spotify</a></div>
+			</div>
+		</section>
+
+		<section class="blog">
+
+			<div class="para">
+				<div class='entry' id='entry1'>	
+					<div class='icon' 
+					style="background-image: url('img/hackathon/packeroo_ico.png')"></div>
+					<h1>Packeroo</h1>
+					<p class="award">Grand Prize Winners, AngelHacks Global Hackathon Series: Boston 2017 </p>
+					<p class='tools'>Node.js, AWS Lambda, Ionic</p>
+					<a href='http://www.hackathon.io/83884' target='_blank'><div class='button'>Submission</div></a>
+				</div>
+				<br>
+				<div class='entry'>
+					<p class="full-video">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/O5YLqh4hVKY" frameborder="0" allowfullscreen></iframe>
+					</p>
+					<p class="post">
+						With Packeroo, we set out to tackle the most difficult part of the travelling experience: packing. Packeroo
+						is a skill for Amazon Alexa, which can intelligently parse flight tickets from emails, and provide
+						intelligent assistance on what to pack for that trip, depending on weather conditions, trip duration, and
+						even a check-list that the user can create and manage on a companion mobile application. My contribution
+						to this project was developing the Voice UX, and developing the companion mobile application.<br>
+					</p>
+					<hr class="inv"><br>
+				</div>
+			</div>
+
+			<div class="para">
+				<div class='entry' id='entry2'>	
+					<div class='icon' 
+					style="background-image: url('img/hackathon/lapras_ico.png')"></div>
+					<h1>Lapras</h1>
+					<p class="award">Best Use of Capital One's Nessie API, HackPrinceton Spring 2016</p>
+					<p class='tools'>HTML, CSS, MySQL, JavaScript</p>
+					<a href='https://devpost.com/software/lapras' target='_blank'><div class='button'>Submission</div></a>
+				</div>
+				<div class='full-picture' 
+					style="background-image: url('img/hackathon/lapras_full.png')">
+				</div>
+				<div class='entry'>
+					<p class="post">
+						Lapras is a web robot that utilizes Capital One's Nessie Hackathon API, and emulates interactions that
+						can be made with personal bankers. Lapras can make queries to filter transaction activity between a 
+						set time frame, and make predictions based on spending patterns. My contribution to this project was 
+						developing the PHP backend and wiring it to the MySQL database, as well as developing bot 
+						interactions and writing the underlying logic. 
+					</p>
+					<hr class="inv"><br>
+			</div>
+
+		</section>
 		
-	<div class='header contentPage' id='entry1'>	
-		<div class='icon' 
-		style="background-image: url('img/hackathon/packeroo_ico.png')"></div>
-		<h1>Packeroo</h1>
-		<p>Grand Prize Winners, AngelHacks Global Hackathon Series: Boston 2017 </p>
-		<p class='tools'>Node.js, AWS Lambda, Ionic</p>
-		<a href='http://www.hackathon.io/83884' target='_blank'><div class='button'>Submission</div></a>
-	</div>
-	<br>
-	<div class='mainPost contentPage centerShipNP'>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/O5YLqh4hVKY" frameborder="0" allowfullscreen></iframe>
-		<p>
-			With Packeroo, we set out to tackle the most difficult part of the travelling experience: packing. Packeroo
-			is a skill for Amazon Alexa, which can intelligently parse flight tickets from emails, and provide
-			intelligent assistance on what to pack for that trip, depending on weather conditions, trip duration, and
-			even a check-list that the user can create and manage on a companion mobile application. My contribution
-			to this project was developing the Voice UX, and developing the companion mobile application.<br>
-		</p>
-		<hr class="inv"><br>
-	</div>
+	
 		
 	
 
@@ -204,20 +236,5 @@
 			</div>
 		</div>
 	</div>
-			
-		<div class='mainPost contentPage'>	
-
-			<p style='float: left'> <a href='#'><i class="fa fa-arrow-up" aria-hidden="true"></i> Back to top</a> </p>
-			<p style='float: right'> <a href='/'><i class="fa fa-home " aria-hidden="true"></i> Back to all projects</a> </p>
-			<div style="clear: both;"></div>
-				
-		</div>
-		
-
-		<div class='footer solanke'>
-			<p style='float: left'> © Tanay Vardhan, 2017 </p>
-			<p style='float: right'> <a href='https://github.com/tanayv/fm-masterclass'><i class="fa fa-futbol-o" aria-hidden="true"></i></a> &nbsp <a href='https://open.spotify.com/user/tanayvardhan' target='_blank'><i class="fa fa-spotify" aria-hidden="true"></i></a> &nbsp   <a href='https://medium.com/@tanayvardhan' target='_blank'><i class="fa fa-medium" aria-hidden="true"></i></a></p>
-			<div style="clear: both;"></div>
-		</div>
 	</body>
 </html>
