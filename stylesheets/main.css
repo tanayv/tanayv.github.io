@@ -906,7 +906,11 @@
 }
 
 .cover-charo {
-  background: url('./../images/covers/charo.jpeg');
+  background-image: url('./../images/covers/charo.jpeg');
+}
+
+.cover-in-flight {
+  background-image: url('./../images/covers/in-flight.jpg');
 }
 
 .blog-post-project-overview {
@@ -917,6 +921,7 @@
   box-shadow: 0 25px 50px -30px rgba(60,66,68,.3);
   border-radius: 10px;
   padding: 25px;
+  margin-bottom: 25px;
 }
 
 .blog-post-project-overview table tr td {
