@@ -630,6 +630,20 @@
       font-size: 100%;
     }
   }
+
+  button {
+    background-color: #005eb8;
+    color: #fff;
+    padding: 10px 20px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+  }
+
+  button:hover {
+    background-color: #1f81dd;
+    cursor: pointer;
+  }
   
   
   /** Custom CSS **/
@@ -729,8 +743,8 @@
   }
   
   .nav .single-link a:hover {
-    color: #3b3b3b;
-    border-bottom: 1px solid #3b3b3b;
+    color: #005eb8;
+    border-bottom: 1px solid #005eb8;
   }
 
   .bio {
@@ -891,13 +905,30 @@
   background-repeat: no-repeat;
 }
 
+.cover-charo {
+  background: url('./../images/covers/charo.jpeg');
+}
+
 .blog-post-project-overview {
   background-color: #fff;
-  height: 300px;
   width: 100%;
   margin-top: -20%;
   -webkit-box-shadow: 0 25px 50px -30px rgba(60,66,68,.3);
   box-shadow: 0 25px 50px -30px rgba(60,66,68,.3);
   border-radius: 10px;
   padding: 25px;
+}
+
+.blog-post-project-overview table tr td {
+  border-bottom: none;
+}
+
+.blog-post-project-overview table tr td, .blog-post-project-overview table tr th  {
+  width: 50%;
+  vertical-align: top;
+}
+
+.button-container {
+  padding: 20px;
+  text-align: center;
 }
