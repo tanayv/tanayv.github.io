@@ -913,6 +913,14 @@
   background-image: url('./../images/covers/in-flight.jpg');
 }
 
+.cover-clickbait-repel {
+  background-image: url('./../images/covers/clickbait-repel.jpg');
+}
+
+.cover-digital-asia {
+  background-image: url('./../images/covers/digital-asia.jpg');
+}
+
 .blog-post-project-overview {
   background-color: #fff;
   width: 100%;
@@ -922,6 +930,18 @@
   border-radius: 10px;
   padding: 25px;
   margin-bottom: 25px;
+}
+
+.blog-post-project-overview a {
+  text-decoration: none;
+  color: #8a8a8a;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0)
+}
+
+.blog-post-project-overview a:hover {
+  color: #005eb8;
+  border-bottom: 1px solid #005eb8;
 }
 
 .blog-post-project-overview table tr td {
