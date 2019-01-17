@@ -837,6 +837,10 @@
 .thumbnail.thumbnail-clickbait {
   background-image: url('../images/thumbnails/clickbait.png');
 }
+
+.thumbnail.thumbnail-turkbox {
+  background-image: url('../images/thumbnails/turkbox.png');
+}
   
 .card:hover {
     cursor: pointer;
@@ -858,6 +862,10 @@
     letter-spacing: 0.07rem;
     font-size: 0.85rem;
     text-transform: uppercase;
+}
+
+.card .info-text p.skillset i {
+  font-size: 0.9rem;
 }
   
 .card .info-text p.heading {
@@ -919,6 +927,10 @@
 
 .cover-digital-asia {
   background-image: url('./../images/covers/digital-asia.jpg');
+}
+
+.cover-turkbox {
+  background-image: url('./../images/covers/turkbox.jpg');
 }
 
 .blog-post-project-overview {
