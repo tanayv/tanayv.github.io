@@ -51,7 +51,7 @@
                         </tr>
                         <tr>
                             <td>Personal Exploration</td>
-                            <td>Sporadic</td>
+                            <td>Sporadic (Last updated January 2018)</td>
                         </tr>
                         <tr>
                             <th>Collaborators</th>
@@ -70,14 +70,30 @@
                         </tr>
                         <tr>
                             <td>How can we make the internet more hostile towards poorly researched or sensationalist news?</td>
-                            <td>A TensorFlow-powered API to classify clickbaits and prototype for a mobile application that can overlay over social media applications and flag clickbaits and poorly-researched news</td>
+                            <td>A TensorFlow-powered API to identify and flag classify clickbaits</td>
                         </tr>
                     </table>
                 </div>
 
                 <div class="blog-post-content">
                     <h1>Introduction</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>A big part of consuming information online in today's is identifying misinformation and distinguishing opinion from fact. Since a large portion of revenue for online news publications comes from advertising, which in turn, is dictated by clicks and impressions, there is a huge incentive for these publications to mislead and manipulate users into clicking on their content, without the content being enriching enough or simply worth the users' time. Clickbaits are often considered the gateway into misinformation and yellow journalism, because they over-promise on their content and then under-deliver. This project involved building a model to identify and flag clickbait headlines, and finding ways it can be integrated into common news consumption settings, for instance, through social media. </p>
+
+                    <h1>Gathering and labelling data</h1>
+                    <p>One of the challenges with this being a relatively unexplored problem was the lack of datasets available for clickbait headlines. We gathered data by extracting headlines from the Twitter API, and building a simple Node+Angular application to manually distinguish clickbait headlines from non-clickbait headlines, and automatically maintain two separate data files that we could use to train our model.</p>
+
+                    <img src="./../../images/clickbait1.png">
+
+                    <p>We then used this data to train a convolutional neural network, originally developed to do sentence classification to work as a spam filter.</p>
+
+                    <h1>Deploying the API</h1>
+                    <p>The TensorFlow model is connected to a Flask web application, and deployment steps are outlined in the README.md file of the GitHub repository.
+                    <script src="https://gist.github.com/tanayv/a655bc5b2d1000c318c66c767c878382.js"></script>
+                    </p>
+
+                    <h1>Future</h1>
+                    <p>We have several ideas of applications that can be built using this API. We want to find a way that naturally integrates into how a user would consume information on social media, and we're now in the process of developing a Google Assistant prototype that can use Android's accessiblity toolkits to overlay on top of social media applications such as Twitter and Facebook, and flag clickbait headlines.</p>
+
                 </div>
 
                 <div class="footer">
