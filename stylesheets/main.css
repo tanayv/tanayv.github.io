@@ -613,7 +613,7 @@
   pre tt:after {
     content: "";
   }
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 512px) {
     html {
       font-size: 100%;
     }
@@ -642,7 +642,7 @@
     margin: 0 auto;
   }
   
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 512px) {
     .root {
       padding: 0;
       width: 90%; 
@@ -864,10 +864,36 @@
     color: #3b3b3b;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 512px) {
     .card-enclosure {
       width: 100%;
     }
+
+    .nav {
+      font-size: 1rem;
+
+    }
+
+    .nav .link-box {
+      width: 80%;
+    }
+
+    .nav .link-box .link {
+      padding: 10px 0px 10px 10px;
+    }
+
+    .footer .left-footer, .footer .right-footer {
+      position: relative !important;
+      display: block !important;
+      text-align: right !important;
+    }
+}
+
+@media only screen and (min-width: 512px) and (max-width: 1080px) {
+  .root {
+    width: 80%;
+  }
+
 }
 
 .footer {
