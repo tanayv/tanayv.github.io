@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{127:function(t,e,a){"use strict";a.r(e);var o=a(0),n=a.n(o),l=a(135),s=a(140),p=a(151);e.default=function(){return console.log(s.a),n.a.createElement(l.a,null,n.a.createElement(p.a,{title:s.a[1].post.title,coverUrl:s.a[1].post.coverUrl,type:s.a[1].post.type,timeline:s.a[1].post.timeline,challenge:s.a[1].post.challenge,solution:s.a[1].post.solution,awards:s.a[1].post.awards,links:s.a[1].post.links,body:s.a[1].post.body}))}}}]);
+//# sourceMappingURL=component---src-pages-blog-charo-js-48a49035bd3a8375f9fc.js.map
