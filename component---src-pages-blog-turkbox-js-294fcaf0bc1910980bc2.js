@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{129:function(t,e,a){"use strict";a.r(e);var o=a(0),n=a.n(o),l=a(135),s=a(140),p=a(151);e.default=function(){return console.log(s.a),n.a.createElement(l.a,null,n.a.createElement(p.a,{title:s.a[0].post.title,coverUrl:s.a[0].post.coverUrl,type:s.a[0].post.type,timeline:s.a[0].post.timeline,challenge:s.a[0].post.challenge,solution:s.a[0].post.solution,awards:s.a[0].post.awards,links:s.a[0].post.links,body:s.a[0].post.body}))}}}]);
-//# sourceMappingURL=component---src-pages-blog-turkbox-js-294fcaf0bc1910980bc2.js.map

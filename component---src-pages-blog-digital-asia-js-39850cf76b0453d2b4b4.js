@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{128:function(t,e,a){"use strict";a.r(e);var o=a(0),n=a.n(o),l=a(135),s=a(140),p=a(151);e.default=function(){return console.log(s.a),n.a.createElement(l.a,null,n.a.createElement(p.a,{title:s.a[2].post.title,coverUrl:s.a[2].post.coverUrl,type:s.a[2].post.type,timeline:s.a[2].post.timeline,challenge:s.a[2].post.challenge,solution:s.a[2].post.solution,awards:s.a[2].post.awards,links:s.a[2].post.links,body:s.a[2].post.body}))}}}]);
-//# sourceMappingURL=component---src-pages-blog-digital-asia-js-39850cf76b0453d2b4b4.js.map
