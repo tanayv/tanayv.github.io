@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Desktop from "../../components/Desktop";
+import { POSTS } from "../../lib/posts";
+
+export function getStaticPaths() {
+  return POSTS.map((p) => ({ params: { slug: p.slug }, props: { post: p } }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={`${post.title} — Tanay Vardhan`} description={post.tagline}>
+  <Desktop client:load initialFocus="writing" initialPostSlug={post.slug} />
+</Layout>

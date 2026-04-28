@@ -1,0 +1,18 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Desktop from "../../components/Desktop";
+import { ROLLS } from "../../lib/rolls";
+
+export function getStaticPaths() {
+  return ROLLS.map((r) => ({ params: { roll: r.id }, props: { roll: r } }));
+}
+
+const { roll } = Astro.props;
+---
+
+<Layout
+  title={`${roll.name} — Photography — Tanay Vardhan`}
+  description={roll.blurb}
+>
+  <Desktop client:load initialFocus="photography" initialRollId={roll.id} />
+</Layout>

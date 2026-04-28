@@ -1,0 +1,500 @@
+/* ---------- design tokens ---------- */
+:root {
+  /* lacquer green system */
+  --lacquer: #214a3c;
+  --lacquer-deep: #143028;
+  --lacquer-rich: #2d6149;
+  --lacquer-light: #3d8466;
+  --lacquer-glow: #6db89b;
+  --lacquer-edge: #0a1f17;
+
+  /* warm desktop / paper */
+  --paper: #e9dcb8;
+  --paper-warm: #d8c69a;
+  --paper-shadow: #b59f6e;
+  --cream: #f4ead2;
+
+  /* accents */
+  --gold: #d4a350;
+  --rust: #a85a3a;
+  --ink: #1c1a14;
+
+  /* chrome */
+  --chrome-light: #e0d4ad;
+  --chrome-mid: #b9a877;
+  --chrome-dark: #5e4e2a;
+
+  /* type */
+  --display: "Press Start 2P", "Silkscreen", "VT323", ui-monospace, Menlo,
+    monospace;
+  --mono: "JetBrains Mono", "IBM Plex Mono", "SF Mono", ui-monospace,
+    Menlo, Consolas, monospace;
+  --serif: "Source Serif 4", "Source Serif Pro", "Iowan Old Style",
+    "Hoefler Text", Georgia, serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* sizing */
+  --frame-pad: 22px;
+  --frame-pad-mobile: 8px;
+  --titlebar-h: 28px;
+  --taskbar-h: 44px;
+  --header-h: 44px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  /* subtle warm noise / scanline texture */
+  background-image:
+    radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-warm) 100%);
+  background-size: 3px 3px, 100% 100%;
+  background-attachment: fixed, fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: var(--lacquer-deep);
+  text-underline-offset: 2px;
+}
+
+/* ---------- desktop frame ---------- */
+.desktop {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: var(--header-h);
+  padding-bottom: var(--taskbar-h);
+}
+
+/* ---------- header ---------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h);
+  background: linear-gradient(180deg, var(--cream) 0%, var(--paper-warm) 100%);
+  border-bottom: 1.5px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--frame-pad);
+  z-index: 200;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 720px) {
+  .header {
+    padding: 0 var(--frame-pad-mobile);
+  }
+}
+
+.header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  line-height: 1;
+  padding: 4px 14px;
+  border: 1.5px solid var(--ink);
+  background: var(--cream);
+  box-shadow: 2px 2px 0 var(--ink);
+  /* keep pixel fonts crisp */
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  image-rendering: pixelated;
+}
+
+.header__brand-text {
+  display: inline-block;
+  transform: translateY(1px);
+  white-space: nowrap;
+}
+
+.header__avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  overflow: hidden;
+  display: inline-grid;
+  place-items: center;
+  background: var(--lacquer);
+  flex-shrink: 0;
+}
+
+.header__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.15) saturate(1.25);
+}
+
+@media (max-width: 540px) {
+  .header__brand {
+    font-size: 9px;
+    gap: 10px;
+    padding: 3px 10px;
+  }
+}
+
+.header__action {
+  width: 32px;
+  height: 28px;
+  border: 1.5px solid var(--ink);
+  background: var(--cream);
+  display: grid;
+  place-items: center;
+  padding: 0;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.06s ease, box-shadow 0.06s ease;
+  color: var(--ink);
+}
+
+.header__action:hover {
+  background: var(--gold);
+}
+
+.header__action:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+/* ---------- workspace ---------- */
+.workspace {
+  flex: 1;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: var(--frame-pad);
+  position: relative;
+}
+
+@media (max-width: 720px) {
+  .workspace {
+    padding: var(--frame-pad-mobile);
+  }
+}
+
+/* ---------- window ---------- */
+.window {
+  background: var(--lacquer);
+  border: 1.5px solid var(--lacquer-edge);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    4px 4px 0 var(--ink),
+    8px 8px 24px rgba(20, 48, 40, 0.35);
+  display: flex;
+  flex-direction: column;
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.window--hidden {
+  display: none;
+}
+
+.window__titlebar {
+  height: var(--titlebar-h);
+  background: linear-gradient(180deg, var(--lacquer-rich) 0%, var(--lacquer-deep) 100%);
+  border-bottom: 1.5px solid var(--lacquer-edge);
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 6px;
+  user-select: none;
+}
+
+@media (max-width: 720px) {
+  .window__titlebar {
+    padding: 0 10px;
+  }
+}
+
+.window__title {
+  flex: 1;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--cream);
+  text-transform: lowercase;
+}
+
+.titlebar-btn {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--lacquer-edge);
+  background: var(--paper-warm);
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font-size: 10px;
+  font-family: var(--mono);
+  color: var(--ink);
+  line-height: 1;
+}
+
+.titlebar-btn:hover {
+  background: var(--gold);
+}
+
+.titlebar-btn--icon {
+  background: var(--cream);
+  cursor: default;
+  color: var(--ink);
+}
+
+.titlebar-btn--icon:hover {
+  background: var(--cream);
+}
+
+.titlebar-btn--icon svg {
+  display: block;
+}
+
+.titlebar-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.titlebar-btns--spacer {
+  width: 18px;
+}
+
+.window__body {
+  flex: 1;
+  padding: 14px;
+  background: var(--lacquer);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 720px) {
+  .window__body {
+    padding: 10px;
+  }
+}
+
+/* inner panes (cream paper inside green window) */
+.pane {
+  background: var(--cream);
+  color: var(--ink);
+  border: 1.5px solid var(--lacquer-edge);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.pane--inset {
+  box-shadow:
+    inset 1px 1px 0 rgba(0, 0, 0, 0.25),
+    inset -1px -1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* ---------- taskbar ---------- */
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--taskbar-h);
+  background: linear-gradient(180deg, var(--cream) 0%, var(--paper-warm) 50%, var(--paper-shadow) 100%);
+  border-top: 1.5px solid var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  z-index: 200;
+  box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+.taskbar__start {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  padding: 5px 12px;
+  border: 1.5px solid var(--ink);
+  background: linear-gradient(180deg, var(--lacquer-light), var(--lacquer));
+  color: var(--cream);
+  box-shadow: 2px 2px 0 var(--ink);
+  flex-shrink: 0;
+  text-transform: lowercase;
+}
+
+.taskbar__start svg {
+  color: var(--cream);
+}
+
+.taskbar__icon {
+  display: inline-grid;
+  place-items: center;
+  color: currentColor;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.taskbar__icon svg {
+  display: block;
+  color: currentColor;
+}
+
+.taskbar__group {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.taskbar__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  font-family: var(--mono);
+  font-size: 12px;
+  background: var(--cream);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  white-space: nowrap;
+  text-transform: lowercase;
+}
+
+.taskbar__btn:hover {
+  background: var(--paper-warm);
+}
+
+.taskbar__btn--active {
+  background: var(--lacquer);
+  color: var(--cream);
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.taskbar__btn--ghost {
+  opacity: 0.7;
+}
+.taskbar__btn--ghost:hover {
+  opacity: 1;
+}
+
+.taskbar__clock {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink);
+  padding: 4px 10px;
+  border: 1.5px solid var(--ink);
+  background: var(--cream);
+  flex-shrink: 0;
+}
+
+@media (max-width: 540px) {
+  .taskbar__start span,
+  .taskbar__clock {
+    display: none;
+  }
+  .taskbar {
+    padding: 0 8px;
+  }
+}
+
+/* ---------- contact dialog ---------- */
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 48, 40, 0.4);
+  display: grid;
+  place-items: center;
+  z-index: 500;
+  padding: 16px;
+}
+
+.dialog {
+  width: 100%;
+  max-width: 380px;
+}
+
+.dialog .window__body {
+  padding: 18px;
+}
+
+.dialog__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(244, 234, 210, 0.25);
+  font-size: 13px;
+}
+
+.dialog__row:last-child {
+  border-bottom: 0;
+}
+
+.dialog__row a {
+  color: var(--lacquer-glow);
+}
+
+/* ---------- typography helpers ---------- */
+.h-mono {
+  font-family: var(--mono);
+  text-transform: lowercase;
+  letter-spacing: 0.06em;
+}
+
+.h-display {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* small "drag rail" pattern */
+.drag-rail {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.18) 0 2px,
+    transparent 2px 4px
+  );
+  height: 6px;
+  margin: 4px 0;
+}
