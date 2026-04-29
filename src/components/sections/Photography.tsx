@@ -1,11 +1,63 @@
 import { useEffect, useMemo, useRef, useState, type FC } from "react";
 import { ROLLS } from "../../lib/rolls";
 import PhotoViewer from "../PhotoViewer";
+import Loader from "../Loader";
 
 type Props = {
   rollId?: string | undefined;
   onRollChange?: (id: string) => void;
 };
+
+const MIN_LOADER_MS = 700;
+
+function useImageBatchLoader(key: string, srcs: string[]) {
+  const [progress, setProgress] = useState(0);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setProgress(0);
+    setReady(false);
+
+    if (srcs.length === 0) {
+      setProgress(100);
+      setReady(true);
+      return;
+    }
+
+    let cancelled = false;
+    let loaded = 0;
+    const start = Date.now();
+    const total = srcs.length;
+
+    const finish = () => {
+      const elapsed = Date.now() - start;
+      const remaining = Math.max(0, MIN_LOADER_MS - elapsed);
+      window.setTimeout(() => {
+        if (!cancelled) setReady(true);
+      }, remaining);
+    };
+
+    srcs.forEach((src) => {
+      const img = new Image();
+      const handle = () => {
+        if (cancelled) return;
+        loaded += 1;
+        setProgress((loaded / total) * 100);
+        if (loaded === total) finish();
+      };
+      img.onload = handle;
+      img.onerror = handle;
+      img.src = src;
+    });
+
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [key]);
+
+  return { progress, ready };
+}
 
 const Photography: FC<Props> = ({ rollId, onRollChange }) => {
   const resolvedRollId =
@@ -34,17 +86,25 @@ const Photography: FC<Props> = ({ rollId, onRollChange }) => {
   const count = roll.frames.length;
   const activeFrame = roll.frames[activeIdx] ?? roll.frames[0]!;
 
+  const reelLoader = useImageBatchLoader(roll.id, roll.frames);
+  const explorerLoader = useImageBatchLoader(
+    `explorer:${filter}`,
+    visibleRolls.map((r) => r.frames[0]!),
+  );
+  const descLoader = useImageBatchLoader(`desc:${activeFrame}`, [activeFrame]);
+
   // Reset frame index when roll changes
   useEffect(() => {
     setActiveIdx(0);
   }, [resolvedRollId]);
 
   useEffect(() => {
+    if (!reelLoader.ready) return;
     const el = trackRef.current?.querySelector<HTMLElement>(
       `[data-idx="${activeIdx}"]`,
     );
     el?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-  }, [activeIdx, resolvedRollId]);
+  }, [activeIdx, resolvedRollId, reelLoader.ready]);
 
   const select = (idx: number) => {
     setActiveIdx(Math.max(0, Math.min(count - 1, idx)));
@@ -66,27 +126,34 @@ const Photography: FC<Props> = ({ rollId, onRollChange }) => {
           </span>
         </div>
         <div className="reel__track-wrap">
-          <div className="reel__track" ref={trackRef}>
-            {roll.frames.map((src, i) => (
-              <button
-                key={src}
-                type="button"
-                className={`reel__frame${i === activeIdx ? " reel__frame--active" : ""}`}
-                data-num={String(i + 1).padStart(2, "0")}
-                data-idx={i}
-                onClick={() => {
-                  if (i === activeIdx) {
-                    setViewerOpen(true);
-                  } else {
-                    select(i);
-                  }
-                }}
-                aria-label={`Frame ${i + 1}`}
-              >
-                <img src={src} alt="" loading="lazy" />
-              </button>
-            ))}
-          </div>
+          {reelLoader.ready ? (
+            <div className="reel__track" ref={trackRef}>
+              {roll.frames.map((src, i) => (
+                <button
+                  key={src}
+                  type="button"
+                  className={`reel__frame${i === activeIdx ? " reel__frame--active" : ""}`}
+                  data-num={String(i + 1).padStart(2, "0")}
+                  data-idx={i}
+                  onClick={() => {
+                    if (i === activeIdx) {
+                      setViewerOpen(true);
+                    } else {
+                      select(i);
+                    }
+                  }}
+                  aria-label={`Frame ${i + 1}`}
+                >
+                  <img src={src} alt="" loading="lazy" />
+                </button>
+              ))}
+            </div>
+          ) : (
+            <Loader
+              label={`${roll.id}.reel`}
+              progress={reelLoader.progress}
+            />
+          )}
         </div>
       </div>
 
@@ -117,26 +184,32 @@ const Photography: FC<Props> = ({ rollId, onRollChange }) => {
               </span>
             </div>
           </div>
-          <div className="explorer__list">
-            {visibleRolls.map((r) => (
-              <button
-                key={r.id}
-                type="button"
-                className={`roll-row${r.id === resolvedRollId ? " roll-row--active" : ""}`}
-                onClick={() => switchRoll(r.id)}
-              >
-                <span className="roll-row__icon" aria-hidden>
-                  <img src={r.frames[0]} alt="" loading="lazy" />
-                </span>
-                <span className="roll-row__text">
-                  <span className="roll-row__name">{r.name}</span>
-                  <span className="roll-row__sub">
-                    {r.film} · {r.frames.length} frames · {r.date}
+          {explorerLoader.ready ? (
+            <div className="explorer__list">
+              {visibleRolls.map((r) => (
+                <button
+                  key={r.id}
+                  type="button"
+                  className={`roll-row${r.id === resolvedRollId ? " roll-row--active" : ""}`}
+                  onClick={() => switchRoll(r.id)}
+                >
+                  <span className="roll-row__icon" aria-hidden>
+                    <img src={r.frames[0]} alt="" loading="lazy" />
                   </span>
-                </span>
-              </button>
-            ))}
-          </div>
+                  <span className="roll-row__text">
+                    <span className="roll-row__name">{r.name}</span>
+                    <span className="roll-row__sub">
+                      {r.film} · {r.frames.length} frames · {r.date}
+                    </span>
+                  </span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="explorer__list">
+              <Loader label="archive.lst" progress={explorerLoader.progress} />
+            </div>
+          )}
         </div>
 
         {/* Controls + description */}
@@ -188,26 +261,32 @@ const Photography: FC<Props> = ({ rollId, onRollChange }) => {
             </button>
           </div>
 
-          <div className="description">
-            <div className="description__main">
-              <h2 className="description__title">{roll.name}</h2>
-              <dl className="description__meta">
-                <dt>film</dt>
-                <dd>{roll.film}</dd>
-                <dt>shot</dt>
-                <dd>{roll.flag} {roll.location} · {roll.date}</dd>
-              </dl>
-              <p className="description__body">{roll.blurb}</p>
+          {descLoader.ready ? (
+            <div className="description">
+              <div className="description__main">
+                <h2 className="description__title">{roll.name}</h2>
+                <dl className="description__meta">
+                  <dt>film</dt>
+                  <dd>{roll.film}</dd>
+                  <dt>shot</dt>
+                  <dd>{roll.flag} {roll.location} · {roll.date}</dd>
+                </dl>
+                <p className="description__body">{roll.blurb}</p>
+              </div>
+              <button
+                type="button"
+                className="description__thumb"
+                aria-label="Open fullscreen"
+                onClick={() => setViewerOpen(true)}
+              >
+                <img src={activeFrame} alt="" loading="lazy" />
+              </button>
             </div>
-            <button
-              type="button"
-              className="description__thumb"
-              aria-label="Open fullscreen"
-              onClick={() => setViewerOpen(true)}
-            >
-              <img src={activeFrame} alt="" loading="lazy" />
-            </button>
-          </div>
+          ) : (
+            <div className="description">
+              <Loader label={`${roll.id}.meta`} progress={descLoader.progress} />
+            </div>
+          )}
         </div>
       </div>
 

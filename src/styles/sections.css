@@ -712,6 +712,77 @@
   }
 }
 
+/* ---------- poolsuite-style loader ---------- */
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 14px 16px;
+  background: var(--paper-warm);
+  color: var(--ink);
+  font-family: var(--mono);
+  box-sizing: border-box;
+}
+
+.loader--compact {
+  gap: 6px;
+  padding: 8px 10px;
+}
+
+.loader__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.loader--compact .loader__head {
+  font-size: 10px;
+}
+
+.loader__label {
+  text-transform: lowercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.loader__pct {
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.loader__bar {
+  position: relative;
+  height: 22px;
+  background: var(--cream);
+  border: 1.5px solid var(--ink);
+  padding: 3px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.loader--compact .loader__bar {
+  height: 14px;
+  padding: 2px;
+}
+
+.loader__bar-fill {
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--rust) 0 5px,
+    transparent 5px 7px
+  );
+  transition: width 140ms linear;
+}
+
 /* =====================================================
    WRITING
    ===================================================== */

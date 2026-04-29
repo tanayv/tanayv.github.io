@@ -74,11 +74,14 @@ const About: FC = () => {
           </h1>
           <div className="about__paras">
             <p>
-              I'm a product-focused software engineer at{" "}
+              I'm a product-focused software engineer based in San Francisco, currently at{" "}
               <a href="https://www.shepherdinsurance.com/" target="_blank" rel="noreferrer">
                 Shepherd
               </a>
-              , where I work on core infrastructure that powers underwriting systems for commercial insurance. Previously, I spent ~6 years building and maintaining core experiences and infrastructure for{" "}
+              , where I work on core infrastructure to automate and scale underwriting workflows for commercial insurance.
+            </p>
+            <p>
+              Previously, I was at PayPal building and maintaining products in{" "}
               <a
                 href="https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later"
                 target="_blank"
@@ -86,11 +89,19 @@ const About: FC = () => {
               >
                 PayPal's Buy Now, Pay Later
               </a>{" "}
-              products.
+              portfolio, and before that, I founded{" "}
+              <a href="/writing/turkbox/">Turkbox</a>, a platform exploring alternative ways to pay for journalism using data-labeling workflows for machine learning systems, which received a grant from the{" "}
+              <a
+                href="https://blog.google/company-news/inside-google/around-the-globe/google-asia/here-are-winners-gni-innovation-challenge-asia-pacific/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Google News Initiative
+              </a>{" "}
+              Innovation Challenge.
             </p>
             <p>
-              Before that, I built{" "}
-              <a href="/writing/turkbox/">Turkbox</a>, a platform to pay for news by classifying data used to train machine learning models. I'm from New Delhi, India, and studied Aerospace Engineering at the University of Illinois at Urbana-Champaign.
+              I'm originally from New Delhi and studied Aerospace Engineering at the University of Illinois Urbana-Champaign.
             </p>
           </div>
         </div>
