@@ -101,7 +101,7 @@ const About: FC = () => {
               Innovation Challenge.
             </p>
             <p>
-              I'm originally from New Delhi and studied Aerospace Engineering at the University of Illinois Urbana-Champaign.
+              I'm from New Delhi and studied Aerospace Engineering at the University of Illinois Urbana-Champaign.
             </p>
           </div>
         </div>

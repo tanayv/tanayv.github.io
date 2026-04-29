@@ -25,8 +25,7 @@
   --chrome-dark: #5e4e2a;
 
   /* type */
-  --display: "Press Start 2P", "Silkscreen", "VT323", ui-monospace, Menlo,
-    monospace;
+  --display: "Press Start 2P", ui-monospace, Menlo, monospace;
   --mono: "JetBrains Mono", "IBM Plex Mono", "SF Mono", ui-monospace,
     Menlo, Consolas, monospace;
   --serif: "Source Serif 4", "Source Serif Pro", "Iowan Old Style",
