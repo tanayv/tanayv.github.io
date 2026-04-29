@@ -1,7 +1,8 @@
 import { useEffect, useState, type FC, type SyntheticEvent } from "react";
+import type { Frame } from "../lib/rolls";
 
 type Props = {
-  frames: string[];
+  frames: Frame[];
   index: number;
   rollName: string;
   onChange: (i: number) => void;
@@ -27,12 +28,16 @@ const PhotoViewer: FC<Props> = ({ frames, index, rollName, onChange, onClose }) 
     };
   }, [frames, index, onChange, onClose]);
 
-  const src = frames[index]!;
+  const frame = frames[index]!;
 
   const handleLoad = (e: SyntheticEvent<HTMLImageElement>) => {
     const img = e.currentTarget;
     setOrientation(img.naturalWidth >= img.naturalHeight ? "landscape" : "portrait");
   };
+
+  const description = frame.description?.trim();
+  const location = frame.location?.trim();
+  const hasCaption = Boolean(description || location);
 
   return (
     <div className="viewer" role="dialog" aria-modal="true" aria-label="Fullscreen photo">
@@ -53,13 +58,23 @@ const PhotoViewer: FC<Props> = ({ frames, index, rollName, onChange, onClose }) 
         <div className={`viewer__frame viewer__frame--${orientation}`}>
           <img
             className="viewer__img"
-            src={src}
+            src={frame.src}
             alt=""
             onLoad={handleLoad}
             onClick={(e) => e.stopPropagation()}
           />
         </div>
       </div>
+      {hasCaption && (
+        <div className="viewer__caption">
+          {location && (
+            <span className="viewer__caption-loc">{location}</span>
+          )}
+          {description && (
+            <span className="viewer__caption-desc">{description}</span>
+          )}
+        </div>
+      )}
       <div className="viewer__controls">
         <button
           type="button"

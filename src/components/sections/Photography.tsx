@@ -85,13 +85,20 @@ const Photography: FC<Props> = ({ rollId, onRollChange }) => {
 
   const count = roll.frames.length;
   const activeFrame = roll.frames[activeIdx] ?? roll.frames[0]!;
+  const frameDescription = activeFrame.description || roll.blurb;
+  const frameLocation = activeFrame.location || roll.location;
 
-  const reelLoader = useImageBatchLoader(roll.id, roll.frames);
+  const reelLoader = useImageBatchLoader(
+    roll.id,
+    roll.frames.map((f) => f.src),
+  );
   const explorerLoader = useImageBatchLoader(
     `explorer:${filter}`,
-    visibleRolls.map((r) => r.frames[0]!),
+    visibleRolls.map((r) => r.frames[0]!.src),
   );
-  const descLoader = useImageBatchLoader(`desc:${activeFrame}`, [activeFrame]);
+  const descLoader = useImageBatchLoader(`desc:${activeFrame.src}`, [
+    activeFrame.src,
+  ]);
 
   // Reset frame index when roll changes
   useEffect(() => {
@@ -128,9 +135,9 @@ const Photography: FC<Props> = ({ rollId, onRollChange }) => {
         <div className="reel__track-wrap">
           {reelLoader.ready ? (
             <div className="reel__track" ref={trackRef}>
-              {roll.frames.map((src, i) => (
+              {roll.frames.map((f, i) => (
                 <button
-                  key={src}
+                  key={f.src}
                   type="button"
                   className={`reel__frame${i === activeIdx ? " reel__frame--active" : ""}`}
                   data-num={String(i + 1).padStart(2, "0")}
@@ -144,7 +151,7 @@ const Photography: FC<Props> = ({ rollId, onRollChange }) => {
                   }}
                   aria-label={`Frame ${i + 1}`}
                 >
-                  <img src={src} alt="" loading="lazy" />
+                  <img src={f.src} alt="" loading="lazy" />
                 </button>
               ))}
             </div>
@@ -194,7 +201,7 @@ const Photography: FC<Props> = ({ rollId, onRollChange }) => {
                   onClick={() => switchRoll(r.id)}
                 >
                   <span className="roll-row__icon" aria-hidden>
-                    <img src={r.frames[0]} alt="" loading="lazy" />
+                    <img src={r.frames[0]!.src} alt="" loading="lazy" />
                   </span>
                   <span className="roll-row__text">
                     <span className="roll-row__name">{r.name}</span>
@@ -269,9 +276,11 @@ const Photography: FC<Props> = ({ rollId, onRollChange }) => {
                   <dt>film</dt>
                   <dd>{roll.film}</dd>
                   <dt>shot</dt>
-                  <dd>{roll.flag} {roll.location} · {roll.date}</dd>
+                  <dd>{roll.flag} {frameLocation} · {roll.date}</dd>
                 </dl>
-                <p className="description__body">{roll.blurb}</p>
+                {frameDescription && (
+                  <p className="description__body">{frameDescription}</p>
+                )}
               </div>
               <button
                 type="button"
@@ -279,7 +288,7 @@ const Photography: FC<Props> = ({ rollId, onRollChange }) => {
                 aria-label="Open fullscreen"
                 onClick={() => setViewerOpen(true)}
               >
-                <img src={activeFrame} alt="" loading="lazy" />
+                <img src={activeFrame.src} alt="" loading="lazy" />
               </button>
             </div>
           ) : (

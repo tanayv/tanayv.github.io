@@ -1236,6 +1236,34 @@
   display: block;
 }
 
+.viewer__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  text-align: center;
+  padding: 10px 16px;
+  background: var(--lacquer-deep);
+  border-top: 1.5px solid var(--lacquer-edge);
+  font-family: var(--mono);
+  color: var(--cream);
+  flex-shrink: 0;
+}
+
+.viewer__caption-loc {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lacquer-glow);
+}
+
+.viewer__caption-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--cream);
+  max-width: 720px;
+}
+
 .viewer__controls {
   display: flex;
   align-items: center;

@@ -1,3 +1,9 @@
+export type Frame = {
+  src: string;
+  description?: string;
+  location?: string;
+};
+
 export type Roll = {
   id: string;
   name: string;
@@ -6,41 +12,46 @@ export type Roll = {
   location: string;
   flag: string;
   blurb: string;
-  frames: string[];
+  frames: Frame[];
 };
 
-const baku = [
-  "25830001",
-  "25830003",
-  "25830005",
-  "25830011",
-  "25830012",
-  "25830014",
-].map((n) => `/35mm/baku/${n}.JPG`);
+const expand = (prefix: string, ext: string) => (f: Frame): Frame => ({
+  ...f,
+  src: `${prefix}${f.src}${ext}`,
+});
 
-const corbett = [
-  "37320005",
-  "37320007",
-  "37320014",
-  "37320016",
-  "37320032",
-  "37320036",
-].map((n) => `/35mm/corbett/${n}.JPG`);
+const baku: Frame[] = [
+  { src: "25830001", description: "", location: "" },
+  { src: "25830003", description: "", location: "" },
+  { src: "25830005", description: "", location: "" },
+  { src: "25830011", description: "", location: "" },
+  { src: "25830012", description: "", location: "" },
+  { src: "25830014", description: "", location: "" },
+].map(expand("/35mm/baku/", ".JPG"));
 
-const newfoundland = [
-  "000042050008",
-  "000042050027",
-  "000042050028",
-  "000042050029",
-  "000042050032",
-  "000042050038_1",
-  "000165660016",
-  "000165660017",
-  "000165660021",
-  "000165660022",
-  "000165660025",
-  "000165660027",
-].map((n) => `/35mm/newfoundland/${n}.jpg`);
+const corbett: Frame[] = [
+  { src: "37320005", description: "", location: "" },
+  { src: "37320007", description: "", location: "" },
+  { src: "37320014", description: "", location: "" },
+  { src: "37320016", description: "", location: "" },
+  { src: "37320032", description: "", location: "" },
+  { src: "37320036", description: "", location: "" },
+].map(expand("/35mm/corbett/", ".JPG"));
+
+const newfoundland: Frame[] = [
+  { src: "000042050008", description: "", location: "Gros Morne National Park, NL" },
+  { src: "000042050027", description: "", location: "Gros Morne National Park, NL" },
+  { src: "000042050028", description: "", location: "Rocky Harbour, NL" },
+  { src: "000042050029", description: "", location: "Rocky Harbour, NL" },
+  { src: "000042050032", description: "", location: "Bonavista, NL" },
+  { src: "000042050038_1", description: "", location: "Gros Morne National Park, NL" },
+  { src: "000165660016", description: "", location: "St. John's, NL" },
+  { src: "000165660017", description: "", location: "St. John's, NL" },
+  { src: "000165660021", description: "", location: "Gander, NL" },
+  { src: "000165660022", description: "", location: "Gander, NL" },
+  { src: "000165660025", description: "", location: "Rocky Harbour, NL" },
+  { src: "000165660027", description: "", location: "Gros Morne National Park, NL" },
+].map(expand("/35mm/newfoundland/", ".jpg"));
 
 export const ROLLS: Roll[] = [
   {
