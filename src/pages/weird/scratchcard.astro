@@ -1,0 +1,238 @@
+---
+import { Code } from "astro:components";
+import WeirdLayout from "../../layouts/WeirdLayout.astro";
+import Playground from "../../weird/docs/Playground";
+import { CouponExample, FortuneExample } from "../../weird/docs/Examples";
+
+const toc = [
+  { id: "playground", label: "Playground" },
+  { id: "installation", label: "Installation" },
+  { id: "usage", label: "Usage" },
+  { id: "examples", label: "Examples" },
+  { id: "api", label: "API reference" },
+  { id: "accessibility", label: "Accessibility" },
+  { id: "how-it-works", label: "How it works" },
+];
+
+const usage = `import { Scratchcard } from "@/weird/scratchcard";
+
+export function Prize() {
+  return (
+    <Scratchcard onReveal={() => console.log("revealed")}>
+      <p>You will build something nobody asked for.</p>
+    </Scratchcard>
+  );
+}`;
+
+const surfaceCode = `import { Scratchcard, ScratchSurface } from "@/weird/scratchcard";
+
+// One coin, one pile of shavings, three panels.
+<ScratchSurface coin="euro" tool="coin" brushSize={26} bleed={44}>
+  <Ticket>
+    <Scratchcard print="Reveal ✶" threshold={0.7}>
+      <PrizeGrid />
+    </Scratchcard>
+    <Scratchcard print="Bonus">
+      <code>&lt;Scratchcard /&gt;</code>
+    </Scratchcard>
+    <Scratchcard print="Void if removed" radius={2}>
+      7F3A·0101·R
+    </Scratchcard>
+  </Ticket>
+</ScratchSurface>`;
+
+const fortuneCode = `<Scratchcard onReveal={() => setDone(true)}>
+  <p>You will build something nobody asked for, and it will be great.</p>
+</Scratchcard>`;
+
+const couponCode = `const brick: Coating = {
+  base: "#b5543c",       // latex colour
+  sheen: "#ffd6c4",      // highlight colour
+  metal: 0.25,           // 0 = rubbery, 1 = metallic flake
+  holo: 0,               // diffraction grating strength
+  ink: "#5a1e10",        // legend printed on the latex
+  crumbs: ["#7a3424", "#c4705a", "#3a140b"], // shavings: underside, skin, shadow
+};
+
+const card = useRef<ScratchcardHandle>(null);
+
+<Scratchcard ref={card} coating={brick} tool="nail" coin={false} print="?" brushSize={30}>
+  <b>−40%</b>
+</Scratchcard>
+
+<button onClick={() => card.current?.scratch()}>Scratch for me</button>`;
+
+const files = `src/weird/
+├─ lib/
+│  ├─ gl.ts          # tiny WebGL helpers + optics GLSL
+│  ├─ light.ts       # the shared lamp
+│  └─ rng.ts
+└─ scratchcard/
+   ├─ index.ts
+   ├─ Scratchcard.tsx
+   ├─ ScratchSurface.tsx
+   ├─ Coin.tsx
+   ├─ latex.ts           # wear / toughness model
+   ├─ coatingRenderer.ts # the latex shader
+   ├─ debris.ts          # shavings
+   ├─ sound.ts
+   ├─ presets.ts
+   └─ scratchcard.css`;
+
+type Row = [string, string, string, string];
+const cardProps: Row[] = [
+  ["children", "ReactNode", "—", "Whatever is printed underneath. Rendered as normal DOM, so it stays selectable and accessible once revealed."],
+  ["coating", `"silver" | "gold" | "copper" | "graphite" | "holo" | Coating`, `"silver"`, "Latex preset, or your own colours."],
+  ["print", "string | null", `"Scratch here"`, "Legend repeated across the latex in a darker ink. Comes off with it."],
+  ["threshold", "number", "0.7", "Fraction of latex (0–1) that has to come off before onReveal fires."],
+  ["clearOnReveal", "boolean", "false", "Once revealed, crumble the remaining latex away."],
+  ["radius", "number", "3", "Corner radius of the coating, px."],
+  ["seed", "number", "1", "Seeds the latex toughness so two panels don't wear identically."],
+  ["disabled", "boolean", "false", "Ignore strokes (the coin still shows)."],
+  ["onProgress", "(p: number) => void", "—", "Called as latex comes off, 0–1."],
+  ["onReveal", "() => void", "—", "Called once, when progress crosses threshold."],
+];
+const surfaceProps: Row[] = [
+  ["coin", `"quarter" | "penny" | "euro" | false`, `"quarter"`, "Coin drawn under the pointer. false keeps the system cursor."],
+  ["tool", `"coin" | "nail" | "key"`, `"coin"`, "What does the scratching. Sets stroke width, bite and how streaky it is."],
+  ["brushSize", "number", "26", "Length of the contact edge, px. The coin is drawn to match."],
+  ["shavings", "number", "1", "Debris multiplier. 0 turns it off; 2 is a mess."],
+  ["sound", "boolean", "false", "Synthesised scratching noise, from the first press."],
+  ["bleed", "number", "0 (36 standalone)", "How far shavings may be drawn past the surface edge as they fall off."],
+];
+const methods: Row[] = [
+  ["reset()", "Scratchcard, ScratchSurface", "—", "Fresh latex; the surface version also sweeps away the shavings."],
+  ["reveal()", "Scratchcard", "—", "Take all the latex off at once."],
+  ["scratch()", "Scratchcard", "—", "Scrub the panel with the coin, automatically."],
+  ["autoScrub()", "ScratchSurface", "—", "Same, for every panel on the surface."],
+  ["blow(x?, y?)", "Scratchcard, ScratchSurface", "—", "A breath across the card: shavings scatter and fall off the edges."],
+  ["progress", "Scratchcard", "—", "Read-only, 0–1."],
+];
+---
+
+<WeirdLayout
+  title="Scratchcard — weird/ui"
+  description="A React scratch-off panel with latex that tears, shavings you have to sweep away, and a coin to do it with."
+  theme="Reveal"
+  toc={toc}
+>
+  <div class="crumbs">
+    <a href="/weird">Components</a><span aria-hidden="true">›</span><span>Scratchcard</span>
+  </div>
+  <h1>Scratchcard</h1>
+  <p class="lead">
+    A scratch-off panel. The latex tears in crumbs instead of erasing, the shavings pile up where you turn and have to
+    be swept off, and you do it all with a coin.
+  </p>
+  <div class="badges">
+    <span class="badge badge--gold">Oct 01 · Reveal</span>
+    <span class="badge">React 18+</span>
+    <span class="badge">WebGL</span>
+    <span class="badge">0 dependencies</span>
+  </div>
+
+  <section id="playground">
+    <Playground client:only="react" />
+  </section>
+
+  <h2 id="installation">Installation</h2>
+  <p>
+    There's no package. Copy the folders below into your project. They only need React, and the coating falls back to a
+    flat colour if WebGL isn't available.
+  </p>
+  <Code code={files} lang="txt" theme="github-dark-default" />
+
+  <h2 id="usage">Usage</h2>
+  <p>Wrap whatever should be hidden. On its own, a <code>Scratchcard</code> brings its own coin and shavings.</p>
+  <Code code={usage} lang="tsx" theme="github-dark-default" />
+  <p>
+    When a card has several panels, put them on one <code>ScratchSurface</code>. They share a single coin, so a stroke
+    can run from one panel into the next. Shavings from one panel can be pushed onto another and fall off the card's
+    edge. The ticket in the playground above is built this way.
+  </p>
+  <Code code={surfaceCode} lang="tsx" theme="github-dark-default" />
+
+  <h2 id="examples">Examples</h2>
+  <h3>Defaults</h3>
+  <div class="frame">
+    <div class="example"><FortuneExample client:only="react" /></div>
+  </div>
+  <Code code={fortuneCode} lang="tsx" theme="github-dark-default" />
+
+  <h3>Custom coating, fingernail</h3>
+  <p>
+    Pass a <code>Coating</code> object for your own latex. With <code>coin={"{false}"}</code> the system cursor stays,
+    which suits the narrower, gentler <code>nail</code> tool.
+  </p>
+  <div class="frame">
+    <div class="example"><CouponExample client:only="react" /></div>
+  </div>
+  <Code code={couponCode} lang="tsx" theme="github-dark-default" />
+
+  <h2 id="api">API reference</h2>
+  <h3>Scratchcard</h3>
+  <p>
+    Accepts every <code>ScratchSurface</code> prop too. They're used when the card stands alone and ignored inside a
+    surface.
+  </p>
+  <div class="table">
+    <table>
+      <thead><tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+      <tbody>
+        {cardProps.map(([p, t, d, desc]) => <tr><td><code>{p}</code></td><td><code>{t}</code></td><td>{d}</td><td>{desc}</td></tr>)}
+      </tbody>
+    </table>
+  </div>
+  <h3>ScratchSurface</h3>
+  <p>The card being held down. Owns the coin, the shavings and the stroke.</p>
+  <div class="table">
+    <table>
+      <thead><tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+      <tbody>
+        {surfaceProps.map(([p, t, d, desc]) => <tr><td><code>{p}</code></td><td><code>{t}</code></td><td>{d}</td><td>{desc}</td></tr>)}
+      </tbody>
+    </table>
+  </div>
+  <h3>Ref methods</h3>
+  <div class="table">
+    <table>
+      <thead><tr><th>Method</th><th>On</th><th></th><th>Description</th></tr></thead>
+      <tbody>
+        {methods.map(([p, t, , desc]) => <tr><td><code>{p}</code></td><td><code>{t}</code></td><td></td><td>{desc}</td></tr>)}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="accessibility">Accessibility</h2>
+  <ul>
+    <li>Each panel is focusable. <kbd>Enter</kbd> or <kbd>Space</kbd> makes the coin scrub it for you.</li>
+    <li>
+      Hidden content is real DOM marked <code>aria-hidden</code> until it's revealed. Then it's announced through a polite
+      live region.
+    </li>
+    <li>Touch works the same as a mouse. The panel blocks scrolling only while your finger is on it.</li>
+  </ul>
+
+  <h2 id="how-it-works">How it works</h2>
+  <ul>
+    <li>
+      <b>Latex that tears.</b> Every pixel stores its own toughness, which varies with noise, and how much wear it has
+      taken. The coating holds until the wear exceeds the toughness, then breaks away. That's why one light pass leaves
+      ragged edges and specks, and you need a second pass to clean them up.
+    </li>
+    <li>
+      <b>A coin's edge, not a round brush.</b> The contact is a short line that turns to face your stroke. Small nicks
+      along that edge bite unevenly and leave fine streaks in the direction you scratch.
+    </li>
+    <li>
+      <b>Shavings.</b> The coating you scrape off doesn't disappear. It collects in front of the edge and rolls into
+      little curls lying along it. They're dropped wherever the stroke turns, slide to a stop on the card, and fall off
+      past its edge.
+    </li>
+    <li>
+      <b>One lamp.</b> The foil, the coating and the coin are all lit by the same light, which follows the pointer. The
+      holographic colours come from a diffraction-grating model: each point of the foil sends a different wavelength
+      to your eye depending on its groove direction.
+    </li>
+  </ul>
+</WeirdLayout>

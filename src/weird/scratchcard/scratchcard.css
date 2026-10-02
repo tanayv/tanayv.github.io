@@ -1,0 +1,68 @@
+.wui-surface {
+  position: relative;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.wui-surface--coin,
+.wui-surface--coin .wui-scratch {
+  cursor: none;
+}
+.wui-debris {
+  position: absolute;
+  pointer-events: none;
+  z-index: 20;
+}
+.wui-scratch {
+  position: relative;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.wui-scratch:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+}
+.wui-scratch__under {
+  position: relative;
+  height: 100%;
+}
+.wui-scratch__latex {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.wui-coin {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 2147483000;
+  transition: opacity 0.14s ease;
+  will-change: transform;
+}
+.wui-coin__body {
+  position: absolute;
+  filter: drop-shadow(0 0.6px 0.3px rgba(0, 0, 0, 0.35));
+}
+.wui-coin__body svg {
+  display: block;
+  overflow: visible;
+}
+.wui-coin__shadow {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.35) 70%, transparent);
+  filter: blur(4px);
+  transition: opacity 0.14s ease;
+}
+.wui-coin__contact {
+  position: absolute;
+  height: 3px;
+  top: -1.5px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.75), transparent);
+  transition: opacity 0.1s ease;
+}

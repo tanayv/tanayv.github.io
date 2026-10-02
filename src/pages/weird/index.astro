@@ -1,0 +1,75 @@
+---
+import { Code } from "astro:components";
+import WeirdLayout from "../../layouts/WeirdLayout.astro";
+import { HeroStrip } from "../../weird/docs/Examples";
+import { DAYS, pad } from "../../weird/docs/nav";
+
+const install = `# no package; copy the source
+src/weird/lib/          # shared: WebGL helpers, the lamp, rng
+src/weird/scratchcard/  # one folder per component`;
+
+const use = `import { Scratchcard } from "@/weird/scratchcard";
+
+<Scratchcard>Hello from underneath.</Scratchcard>`;
+---
+
+<WeirdLayout
+  title="weird/ui — components nobody asked for"
+  description="A React component library of weird components, one for each day of Weird Web October 2026."
+  toc={[
+    { id: "about", label: "About" },
+    { id: "installation", label: "Installation" },
+    { id: "components", label: "Components" },
+  ]}
+>
+  <section class="hero">
+    <div class="eyebrow"><b>Weird Web October 2026</b> · 1 of 31 shipped</div>
+    <h1>weird/ui</h1>
+    <div class="hero__strip">
+      <HeroStrip client:only="react" />
+    </div>
+  </section>
+
+  <h2 id="about">About</h2>
+  <p>
+    This is a component library for things that don't need to exist. <a href="https://weirdweboctober.website/"
+      rel="noopener">Weird Web October</a
+    > gives a prompt for each day. Each day I build one React component for it, overbuild it, and add it here.
+  </p>
+  <p>
+    Each component tries to behave like the real object, not just look like it. A scratchcard's latex tears and leaves
+    shavings. Foil shimmers because a lamp is shining on it.
+  </p>
+
+  <h2 id="installation">Installation</h2>
+  <p>
+    Copy and paste, like shadcn/ui. Every component lives in its own folder and depends only on React and
+    <code>src/weird/lib</code>.
+  </p>
+  <Code code={install} lang="bash" theme="github-dark-default" />
+  <Code code={use} lang="tsx" theme="github-dark-default" />
+
+  <h2 id="components">Components</h2>
+  <p class="muted">Each component is sealed until its day comes round.</p>
+  <div class="grid">
+    {
+      DAYS.map((d) =>
+        d.href ? (
+          <a class="tile tile--live" href={d.href}>
+            <span class="tile__art" aria-hidden="true" />
+            <span class="tile__chip" aria-hidden="true" />
+            <span class="tile__n">Oct {pad(d.day)}</span>
+            <span class="tile__name">{d.component}</span>
+            <span class="tile__theme">{d.theme} · scratch-off panel with real shavings</span>
+          </a>
+        ) : (
+          <div class="tile tile--sealed" aria-label={`Oct ${d.day}, ${d.theme}: not out yet`}>
+            <span class="tile__n">Oct {pad(d.day)}</span>
+            <span class="tile__name">Sealed</span>
+            <span class="tile__theme">{d.theme}</span>
+          </div>
+        ),
+      )
+    }
+  </div>
+</WeirdLayout>

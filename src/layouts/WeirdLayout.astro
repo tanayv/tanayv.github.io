@@ -1,0 +1,121 @@
+---
+// Docs shell for weird/ui, the Weird Web October component library.
+// Deliberately independent of the rest of the site: own fonts, own styles.
+import "../weird/docs/docs.css";
+import { DAYS, pad } from "../weird/docs/nav";
+
+interface Props {
+  title: string;
+  description: string;
+  /** Weird Web October theme tag for this page, e.g. "Reveal". */
+  theme?: string;
+  toc?: { id: string; label: string }[];
+}
+
+const { title, description, theme, toc = [] } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isActive = (href: string) => path === href;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://tanay.io").href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip" href="#content">Skip to content</a>
+    <header class="top">
+      <div class="top__inner">
+        <a class="logo" href="/weird" aria-label="weird/ui home">
+          <span class="logo__mark" aria-hidden="true"></span>
+          weird/ui
+        </a>
+        <nav class="top__nav" aria-label="Primary">
+          <a href="/weird" aria-current={isActive("/weird") ? "page" : undefined}>Docs</a>
+          <a href="/weird/scratchcard" aria-current={isActive("/weird/scratchcard") ? "page" : undefined}>Components</a>
+        </nav>
+        <div class="top__end">
+          <span class="pill">Oct 2026</span>
+          <a href="https://weirdweboctober.website/" rel="noopener">Weird Web October ↗</a>
+          <a href="https://github.com/tanayv" rel="noopener" aria-label="GitHub">
+            <svg width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"
+              ><path
+                fill="currentColor"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+              ></path></svg
+            >
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="side" aria-label="Documentation">
+        <div class="side__group">
+          <h4>Getting started</h4>
+          <a href="/weird" aria-current={isActive("/weird") ? "page" : undefined}>Introduction</a>
+          <a href="/weird#installation">Installation</a>
+        </div>
+        <div class="side__group">
+          <h4>Components</h4>
+          <ol class="days">
+            {
+              DAYS.map((d) =>
+                d.href ? (
+                  <li>
+                    <a href={d.href} aria-current={isActive(d.href) ? "page" : undefined}>
+                      <span class="days__n">{pad(d.day)}</span>
+                      {d.component}
+                      <span class="days__theme">{d.theme}</span>
+                    </a>
+                  </li>
+                ) : (
+                  <li class="is-sealed" title={`Oct ${d.day}: ${d.theme}. Not out yet.`}>
+                    <span class="days__n">{pad(d.day)}</span>
+                    <span class="days__sealed">{d.theme}</span>
+                  </li>
+                ),
+              )
+            }
+          </ol>
+        </div>
+      </aside>
+
+      <main id="content" class="main">
+        <slot />
+        <footer class="foot">
+          Built by <a href="/">Tanay Vardhan</a> for
+          <a href="https://weirdweboctober.website/" rel="noopener">Weird Web October</a>. Copy anything you like.
+        </footer>
+      </main>
+
+      {
+        toc.length > 0 && (
+          <nav class="toc" aria-label="On this page">
+            <h4>On this page</h4>
+            {toc.map((t) => (
+              <a href={`#${t.id}`}>{t.label}</a>
+            ))}
+          </nav>
+        )
+      }
+    </div>
+  </body>
+</html>
