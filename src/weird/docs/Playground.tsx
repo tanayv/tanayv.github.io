@@ -74,7 +74,16 @@ export default function Playground() {
   const [won, setWon] = useState(false);
   const [round, setRound] = useState(0);
   const surface = useRef<ScratchSurfaceHandle>(null);
-  const set = <K extends keyof Config>(k: K, v: Config[K]) => setC((o) => ({ ...o, [k]: v }));
+  const set = <K extends keyof Config>(k: K, v: Config[K]) => {
+    setC((o) => ({ ...o, [k]: v }));
+    // new latex means a new ticket: don't leave the old shavings lying on it
+    if (k === "coating" || k === "print") newTicket();
+  };
+  const newTicket = () => {
+    setProgress(0);
+    setWon(false);
+    setRound((r) => r + 1);
+  };
 
   const pct = Math.round(progress * 100);
 
@@ -98,12 +107,7 @@ export default function Playground() {
         <button
           type="button"
           className="btn btn--dark"
-          onClick={() => {
-            surface.current?.reset();
-            setProgress(0);
-            setWon(false);
-            setRound((r) => r + 1);
-          }}
+          onClick={newTicket}
         >
           New ticket
         </button>
